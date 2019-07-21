@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
-
-function Index() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+import { BrowserRouter as Router, Redirect, Route, Link } from "react-router-dom";
+import './styles.css';
+import Navbar from './Navbar.js'
+import Home from './components/Home.js'
+import Search from './components/Search.js'
+import Profile from './components/Profile.js'
+import Signup from './components/Signup.js'
+import Login from './components/Login.js'
+import Contact from './components/Contact.js'
+import Messages from './components/Messages.js'
 
 class App extends Component {
 
@@ -38,34 +33,17 @@ class App extends Component {
   }
 
   render() {
-    const userList = this.state.users.map((user) => {
-      return <li key={user.id}>Username: {user.name}</li>
-    })
     return (
       <Router>
+        <Navbar />
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about/">About</Link>
-              </li>
-              <li>
-                <Link to="/users/">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Route path="/" exact component={Index} />
-          <Route path="/about/" component={About} />
-          <Route path="/users/" component={Users} />
-        </div>
-        <div>
-          <img className='App-logo' alt="logo" src={ logo } />
-          <h2>Welcome to critterSitter</h2>
-          <ul>{userList}</ul>
+          <Route path="/" exact component={Home} />
+          <Route path="/search/" component={Search} />
+          <Route path="/profile/:id/contact" component={Contact} />
+          <Route path="/profile/:id" component={Profile} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route path="/messages" component={Messages} />
         </div>
       </Router>
     );
