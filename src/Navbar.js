@@ -4,7 +4,7 @@ import logo from './logo.svg';
 
 function Navbar() {
   return(
-    <nav class="navbar">
+    <nav className="navbar">
       <div>
         <img className='App-logo' alt="logo" src={ logo } />
         <a href="/" className="navbar-brand">critterSitter</a>
