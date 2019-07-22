@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Redirect, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles.css';
 import Navbar from './Navbar.js'
 import Home from './components/Home.js'
@@ -9,6 +9,7 @@ import Signup from './components/Signup.js'
 import Login from './components/Login.js'
 import Contact from './components/Contact.js'
 import Messages from './components/Messages.js'
+import Error from './components/Error.js'
 
 class App extends Component {
 
@@ -36,15 +37,16 @@ class App extends Component {
     return (
       <Router>
         <Navbar />
-        <div>
-          <Route path="/" exact component={Home} />
+        <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/search/" component={Search} />
+          <Route exact path="/profile/:id" component={Profile} />
           <Route path="/profile/:id/contact" component={Contact} />
-          <Route path="/profile/:id" component={Profile} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/messages" component={Messages} />
-        </div>
+          <Route component={Error} />
+        </Switch>
       </Router>
     );
   }
