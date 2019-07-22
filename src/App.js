@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles.css';
-import Navbar from './Navbar.js'
+import Mynavbar from './Mynavbar.js'
 import Home from './components/Home.js'
 import Search from './components/Search.js'
 import Profile from './components/Profile.js'
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
+        <Mynavbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/search/" component={Search} />

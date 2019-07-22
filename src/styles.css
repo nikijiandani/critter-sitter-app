@@ -2,32 +2,5 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 7vmin;
-  pointer-events: none;
-  padding-bottom: 15px;
-}
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  height: 4rem;
-  background-color: #5CDB95;
-  z-index: 1;  
-}
-
-.navbar-brand {
-  text-decoration: none;
-  color: black;
-  font-size: 30px;
-  line-height: 1rem;
-  padding: 0 10px;
-}
-
-ul.menu {
-  list-style-type: none;
-  display: flex;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 
