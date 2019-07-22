@@ -11,5 +11,6 @@
   background-color: red;
   padding: 0.5em;
   display: inline-flex;
-  textAlign: center
+  border: 1px solid black;
+  border-radius: 5px;
 }

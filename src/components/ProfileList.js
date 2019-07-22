@@ -5,13 +5,13 @@ function ProfileList(props) {
   
   return (
     <ul className="profilelist">
-      {props.profiles.map(message => {
+      {props.profiles.map(user => {
         return (
-        <li className="item">
-          <img src={message.avatar} alt="avatar" className="avatar" />
+        <li className="item" key={user.id}>
+          <img src={user.avatar} alt="avatar" className="avatar" />
           <div>
-            <p>{message.first_name} {message.last_name}</p>
-            <p>Avg Rating: {message.rating}</p>
+            <a href="/">{user.first_name} {user.last_name}</a>
+            <p>Avg Rating: {user.rating}</p>
           </div>
         </li>
         )
