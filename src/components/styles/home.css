@@ -1,0 +1,13 @@
+.text-section {
+    display: flex;
+    justify-content: center;
+    padding-top: 275px;
+  }
+
+.options-section {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* padding: 50px; */
+    flex-wrap: wrap;
+  }

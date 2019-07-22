@@ -3,44 +3,31 @@
 }
 
 .App-logo {
-  height: 4vmin;
+  height: 7vmin;
   pointer-events: none;
+  padding-bottom: 15px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
+  height: 4rem;
+  background-color: #5CDB95;
+  z-index: 1;  
 }
+
 .navbar-brand {
   text-decoration: none;
   color: black;
+  font-size: 30px;
+  line-height: 1rem;
+  padding: 0 10px;
 }
 
-.menu {
+ul.menu {
   list-style-type: none;
   display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
