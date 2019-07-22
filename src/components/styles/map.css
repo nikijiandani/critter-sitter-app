@@ -3,4 +3,13 @@
   height: 20em;
   border: 1px solid black;
   border-radius: 5px;
+  margin: 0.2em;
+}
+
+.map-pins {
+  color: white;
+  background-color: red;
+  padding: 0.5em;
+  display: inline-flex;
+  textAlign: center
 }

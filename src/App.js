@@ -19,7 +19,7 @@ class App extends Component {
       users: []
     }
   }
-  
+
 
   componentDidMount() {
     fetch('http://localhost:8080/api/users')
