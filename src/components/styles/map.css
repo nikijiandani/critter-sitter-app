@@ -1,0 +1,6 @@
+.map {
+  background-color: lightgrey;
+  height: 20em;
+  border: 1px solid black;
+  border-radius: 5px;
+}

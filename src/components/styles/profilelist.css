@@ -1,0 +1,13 @@
+.profilelist {
+  border: 1px solid black;
+  padding: 0;
+}
+.item {
+  list-style-type: none;
+  border: 1px solid black;
+  display: flex;
+}
+.avatar {
+  width: 5em;
+  height: 5em;
+}
