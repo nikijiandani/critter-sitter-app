@@ -1,11 +1,18 @@
 .profilelist {
-  border: 1px solid black;
-  padding: 0;
+  padding: 0.2em;
 }
 .item {
   list-style-type: none;
   border: 1px solid black;
+  border-radius: 5px;
   display: flex;
+  margin-bottom: 0.1em;
+}
+.item div {
+  padding: 0.2em;
+}
+.item p {
+  margin: 0;
 }
 .avatar {
   width: 5em;
