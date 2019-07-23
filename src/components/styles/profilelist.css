@@ -18,3 +18,47 @@
   width: 5em;
   height: 5em;
 }
+@media (min-width: 576px) {
+  .item {
+    border-radius: 0;
+  }
+  .item div {
+    padding: 1em;
+  }
+  .item span {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  .item a {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  .item p {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+  .avatar {
+    width: 10em;
+    height: 10em;
+  }
+}
+@media (min-width: 992px) {
+  .item span {
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+  .item a {
+    font-size: 1.6em;
+    font-weight: 700;
+  }
+  .item p {
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  .profile-list {
+    width: 60%;
+  }
+  .item {
+    width: 100%;
+  }
+}

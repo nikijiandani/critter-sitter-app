@@ -10,6 +10,7 @@ function ProfileList(props) {
         <li className="item" key={user.id}>
           <img src={user.avatar} alt="avatar" className="avatar" />
           <div>
+            <span>{user.id}.</span>
             <a href="/">{user.first_name} {user.last_name}</a>
             <p>Avg Rating: {user.rating}</p>
           </div>

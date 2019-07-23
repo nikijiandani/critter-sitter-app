@@ -7,6 +7,7 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
+      city: "Toronto",
       profiles: [
         {
           id: 1,
@@ -54,10 +55,12 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
-      <h3>Sitters in Toronto</h3>
-      <Map profiles={this.state.profiles}/>
-      <ProfileList profiles={this.state.profiles}/>
+      <div className="search">
+        <h3>Sitters in {this.state.city}</h3>
+        <div className="search-container">
+          <Map profiles={this.state.profiles} className="map-component"/>
+          <ProfileList profiles={this.state.profiles}/>
+        </div>
       </div>
     )
   }
