@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/profilelist.css';
+import { Link } from "react-router-dom"; 
 
 function ProfileList(props) {
   
@@ -11,7 +12,7 @@ function ProfileList(props) {
           <img src={user.avatar} alt="avatar" className="avatar" />
           <div>
             <span>{user.id}.</span>
-            <a href="/">{user.first_name} {user.last_name}</a>
+            <Link to={`/profile/${user.id}`}>{user.first_name} {user.last_name}</Link>
             <p>Avg Rating: {user.rating}</p>
           </div>
         </li>

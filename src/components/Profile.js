@@ -52,7 +52,7 @@ class Profile extends Component {
             </div>
           </div>
           <div className="profile-image">
-              <img src={this.state.profiles.image} alt="image" />
+              <img src={this.state.profiles.image} alt="users-images" />
           </div>
           <Reviews reviews={this.state.reviews}/>
         </div>
