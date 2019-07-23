@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import './styles/login.css';
 
-function Login() {
-  return (
-    <h1>This is the Loginpage</h1>
-  )
+
+class Login extends Component {
+  constructor() {
+    super()   
+  }
+
+  render() {
+    return (
+        <Form className="login-form">
+          <h3>Login</h3>      
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Button variant="info" type="submit" className="myBtn" block>
+            Submit
+          </Button>
+        </Form> 
+    )
+  }  
 }
 
 export default Login;

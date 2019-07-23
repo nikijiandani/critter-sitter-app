@@ -1,0 +1,27 @@
+.login-form {
+    padding: 0.2em;
+}
+
+.myBtn {
+    background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+
+.login-form h3 {
+    padding: 0;
+    font-size: 3em;
+}
+
+@media (min-width: 768px){
+    .login-form {
+      width: 80%;
+      margin: 0 auto;
+    }
+}
+  
+@media (min-width: 1024px){
+    .login-form {
+      width: 50%;
+      margin: 0 auto;
+    }
+}
