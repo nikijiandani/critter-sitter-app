@@ -1,0 +1,27 @@
+.contact {
+  padding: 0.2em;
+}
+.form-label {
+  font-size: 1.5em;
+}
+.myBtn {
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+textarea.form-control {
+  height: 10em;
+}
+
+@media (min-width: 768px){
+  .contact {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px){
+  .contact {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
