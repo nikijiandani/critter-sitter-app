@@ -1,0 +1,84 @@
+ .profile-container {
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+ }
+
+.profile-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reviews {
+  padding: 0;
+  margin: 0 0.2em;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    padding-top: 2em;
+    flex-direction: row;
+  }
+  .profile-map {
+    width: 35%;
+    padding-right: 5em;
+  }
+  .profile-avatar {
+    width: 10em;
+    height: 10em;
+    align-items: left;
+  }
+  .profile-left{
+    width: 65%;
+    padding-left: 5em;
+  }
+  .profile-header {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .profile-name {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+  .profile-info {
+    align-content: left;
+}
+  .profile-review {
+    align-items: flex-start;
+  }
+  .profile-image {
+    justify-content: flex-start;
+  }
+}
