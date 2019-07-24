@@ -33,6 +33,41 @@ class Profile extends Component {
     }    
   }
 
+  componentDidMount() {
+    fetch('http://localhost:8080/api/reviews')
+    .then(results => {
+      results.json().then((res) => {
+        console.log(res)
+        this.setState({
+          users: res
+        });
+      })
+    })
+  }
+
+  handleSubmit = (e) => {
+    let newReview = {
+      from_id: 10,
+      to_id: 1,
+      review: e.target.elements[0].value
+    };
+    e.preventDefault();
+    e.target.elements[0].value = ""
+    fetch('http://localhost:8080/api/reviews', {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'omit',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newReview)
+    })
+    .then(res => res.json())
+    .then((response) => console.log("Success:", JSON.stringify(response)))
+    .catch(error => console.log('Error:', error))
+  }
+
   render() {
     return (
       <div className="profile-container">
@@ -79,12 +114,12 @@ class Profile extends Component {
             </Carousel.Item>
           </Carousel>
           
-          <Form className="review-form">
+          <Form className="review-form" onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label>Add a Review:</Form.Label>
               <Form.Control as="textarea" />
             </Form.Group>
-            <Button variant="primary" type="submit">Submit</Button>
+            <Button variant="primary" type="submit" >Submit</Button>
           </Form>
 
           <Reviews reviews={this.state.reviews}/>
