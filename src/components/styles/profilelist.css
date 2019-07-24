@@ -1,5 +1,8 @@
 .profilelist {
   padding: 0.2em;
+  height: 85vh;
+  overflow-y: scroll;
+  box-shadow: 1px 3px #e6e6e6;
 }
 .item {
   list-style-type: none;
