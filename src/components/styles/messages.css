@@ -1,0 +1,25 @@
+.message-container {
+    padding: 0.2em;
+}
+
+.message-block {
+    padding-top: 0.3em;
+}
+
+.message-list {
+    padding: 0;
+}
+  
+@media (min-width: 768px){
+    .message-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+}
+  
+@media (min-width: 1024px){
+    .message-container {
+      width: 50%;
+      margin: 0 auto;
+    }
+}
