@@ -39,8 +39,8 @@ class SearchMap extends Component {
           return (
             <ProfilePins
               key={index}
-              lat={mapProfile.home_coords ? mapProfile.home_coords[1] : 0}
-              lng={mapProfile.home_coords ? mapProfile.home_coords[0] : 0}
+              lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
+              lng={mapProfile.home_long ? mapProfile.home_long : 0}
               text={mapProfile.first_name}
             />
           )
