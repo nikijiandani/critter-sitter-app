@@ -1,12 +1,16 @@
- .profile-container {
-    padding-top: 1em;
-    display: flex;
-    flex-direction: column;
- }
+.profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-container form {
+  width: 100%;
+}
 
 .profile-left {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .profile-header {
@@ -17,9 +21,13 @@
   text-align: center;
 }
 
-.profile-image {
-  display: flex;
-  justify-content: center;
+.profile-images {
+  display: none;
+}
+
+.profile-images img {
+  width: 20em;
+  height: 20em;
 }
 
 .profile-info {
@@ -37,7 +45,7 @@
 .profile-review {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  width: 100%;
 }
 
 .reviews {
@@ -47,38 +55,60 @@
 
 @media (min-width: 768px) {
   .profile-container {
-    padding-top: 2em;
+    padding-top: 1em;
     flex-direction: row;
+    margin-bottom: 10em;
+  }
+  .profile-container textarea {
+    width: 61%;
   }
   .profile-map {
     width: 35%;
+    height: 50vh;
     padding-right: 5em;
   }
-  .profile-avatar {
+  .profile-avatar img {
     width: 10em;
     height: 10em;
-    align-items: left;
   }
   .profile-left{
     width: 65%;
     padding-left: 5em;
+    align-items: initial;
   }
   .profile-header {
     flex-direction: row;
     justify-content: flex-start;
+    margin-bottom: 0.5em;
   }
   .profile-name {
     flex-direction: row;
-    text-align: left;
-    justify-content: space-between;
+    align-items: flex-start;
   }
   .profile-info {
-    align-content: left;
-}
+    align-items: flex-start;
+    padding-left: 1em;
+  }
   .profile-review {
     align-items: flex-start;
   }
-  .profile-image {
-    justify-content: flex-start;
+  .profile-images {
+    width: 28em;
+    display: initial;
+  }
+}
+@media (min-width: 992px) {
+  .profile-text {
+    width: 60%;
+  }
+  .profile-text h3 {
+    text-align: left;
+    padding-left: 0.5em;
+  }
+  .profile-text a {
+    width: 15em;
+  }
+  .profile-review {
+    padding-top: 0.5em;
   }
 }
