@@ -14,14 +14,14 @@ class Profile extends Component {
           first_name: "Dudley",
           last_name: "Maggio",
           location: "500 Kingston Rd, ON M4L 1V3", 
-          num_of_ratings: 167,
+          num_of_ratings: 2,
           avatar: "https://api.adorable.io/avatars/111/Dudley5@gmail.com.png",
           image: "https://assurance-chien-et-chat.com/wp-content/uploads/2019/04/_139_Animal-de-compagnie-Wikipedia-Assurance-pour-Chien.jpg",
           home_coords:[-79.3049261, 43.6779947]
         },
         reviews: [
           {
-            first_name: "Dudley",
+            first_name: "Marc",
             content: "This is an awesome review",
           },
           {
@@ -37,28 +37,31 @@ class Profile extends Component {
       <div className="profile-container">
         <div className="profile-left">
           <div className="profile-header">
+
             <div className="profile-avatar">
                 <img src={this.state.profiles.avatar} alt="avatar" />
             </div>
-            <div>
+
+            <div className="profile-text">
               <div className="profile-name">    
                   <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
                   <Link to="/profile/:id/contact" className="btn btn-info">Contact</Link>
               </div>
               <div className="profile-info">
                   <h6>{this.state.profiles.location}</h6>
-                  <p>Number of Ratings: {this.state.profiles.num_of_ratings}</p>
+                  <p>Number of Ratings: {this.state.reviews.length}</p>
               </div>
             </div>
           </div>
           <div className="profile-image">
-              <img src={this.state.profiles.image} alt="users-images" />
+              <img src={this.state.profiles.image} alt="users-surroundings-or-users-animals" />
           </div>
           <Reviews reviews={this.state.reviews}/>
         </div>
+
         <div className="profile-map">
-          <h4>Sitter's Neighbourhood</h4>
-          <Map profiles={[this.state.profiles]}/>
+          <h4>{this.state.profiles.first_name}'s Neighbourhood</h4>
+          <Map profiles={[this.state.profiles]} />
         </div>
       </div>
     )

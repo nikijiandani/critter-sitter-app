@@ -19,7 +19,7 @@ class SearchMap extends Component {
       lat: 43.6532,
       lng: -79.3832
     },
-    zoom: 11
+    zoom: 10
   };
 
   render() {
