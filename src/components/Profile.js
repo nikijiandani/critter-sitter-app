@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Map from './Map';
 import Reviews from './Reviews';
 import './styles/profile.css';
+import { Form, Button, Carousel } from 'react-bootstrap';
 
 
 class Profile extends Component {
@@ -16,7 +17,7 @@ class Profile extends Component {
           location: "500 Kingston Rd, ON M4L 1V3", 
           num_of_ratings: 2,
           avatar: "https://api.adorable.io/avatars/111/Dudley5@gmail.com.png",
-          image: "https://assurance-chien-et-chat.com/wp-content/uploads/2019/04/_139_Animal-de-compagnie-Wikipedia-Assurance-pour-Chien.jpg",
+          images: ["http://hsmo.zurihosting.com/wp-content/uploads/2016/06/Pebbles2-A608071a.jpg", "https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg", "https://www.inquirer.com/resizer/iI306f5uOeqNIdt9yTnwaQE583I=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/KRGVV5DRABH3BPHJWDFSICAEVA.jpg"],
           home_coords:[-79.3049261, 43.6779947]
         },
         reviews: [
@@ -53,9 +54,39 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-          <div className="profile-image">
-              <img src={this.state.profiles.image} alt="users-surroundings-or-users-animals" />
-          </div>
+
+          <Carousel className="profile-images">
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={this.state.profiles.images[0]}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={this.state.profiles.images[1]}
+                alt="Third slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={this.state.profiles.images[2]}
+                alt="Third slide"
+              />
+            </Carousel.Item>
+          </Carousel>
+          
+          <Form className="review-form">
+            <Form.Group>
+              <Form.Label>Add a Review:</Form.Label>
+              <Form.Control as="textarea" />
+            </Form.Group>
+            <Button variant="primary" type="submit">Submit</Button>
+          </Form>
+
           <Reviews reviews={this.state.reviews}/>
         </div>
 
