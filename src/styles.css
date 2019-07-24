@@ -5,3 +5,7 @@
 .nav-color {
   background-color: aquamarine
 }
+
+.message-bell:hover {
+  color: red;
+}
