@@ -2,7 +2,7 @@
     padding: 0.2em;
 }
 
-.message-block {
+.message-block-to, .message-block-from {
     padding-top: 0.3em;
 }
 
