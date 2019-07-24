@@ -4,6 +4,8 @@ import Map from './Map';
 import Reviews from './Reviews';
 import './styles/profile.css';
 import { Form, Button, Carousel } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
+
 
 
 class Profile extends Component {
@@ -61,6 +63,10 @@ class Profile extends Component {
     .catch(error => console.log('Error:', error))
   }
 
+  onStarClick = (nextValue, prevValue, name) => {
+    this.setState({rating: nextValue});
+  }
+
   render() {
     return (
       <div className="profile-container">
@@ -110,6 +116,12 @@ class Profile extends Component {
           <Form className="review-form" onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label>Add a Review:</Form.Label>
+              <StarRatingComponent 
+                name="rate1" 
+                starCount={5}
+                value={5}
+                onStarClick={this.onStarClick}
+              />
               <Form.Control as="textarea" />
             </Form.Group>
             <Button variant="primary" type="submit" >Submit</Button>
