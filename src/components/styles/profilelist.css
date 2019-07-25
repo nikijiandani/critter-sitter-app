@@ -3,6 +3,7 @@
   height: 85vh;
   overflow-y: scroll;
   box-shadow: 1px 3px #e6e6e6;
+  width: 100%;
 }
 .item {
   list-style-type: none;
@@ -20,6 +21,9 @@
 .avatar {
   width: 5em;
   height: 5em;
+}
+.item .rating {
+  padding: 0;
 }
 @media (min-width: 576px) {
   .item {

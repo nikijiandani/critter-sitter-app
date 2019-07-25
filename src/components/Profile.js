@@ -6,12 +6,15 @@ import './styles/profile.css';
 import { Form, Button, Carousel } from 'react-bootstrap';
 
 
+
+
 class Profile extends Component {
   constructor() {
     super()
     this.state = {
       profiles:
-        {
+        { 
+          id: 1,
           first_name: "Dudley",
           last_name: "Maggio",
           location: "500 Kingston Rd, ON M4L 1V3", 
@@ -20,36 +23,28 @@ class Profile extends Component {
           images: ["http://hsmo.zurihosting.com/wp-content/uploads/2016/06/Pebbles2-A608071a.jpg", "https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg", "https://www.inquirer.com/resizer/iI306f5uOeqNIdt9yTnwaQE583I=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/KRGVV5DRABH3BPHJWDFSICAEVA.jpg"],
           home_coords:[-79.3049261, 43.6779947]
         },
-        reviews: [
-          {
-            first_name: "Marc",
-            content: "This is an awesome review",
-          },
-          {
-            first_name: "Reid",
-            content: "This is also an awesome review",
-          },
-        ]
+      reviews: []
     }    
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/api/reviews')
+    fetch(`http://localhost:8080/api/reviews?profile_id=${this.state.profiles.id}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
         this.setState({
-          users: res
+          reviews: res
         });
       })
     })
   }
 
   handleSubmit = (e) => {
+    let profile_id = this.state.profiles.id
     let newReview = {
       from_id: 10,
-      to_id: 1,
-      review: e.target.elements[0].value
+      to_id: profile_id,
+      content: e.target.elements[0].value
     };
     e.preventDefault();
     e.target.elements[0].value = ""
