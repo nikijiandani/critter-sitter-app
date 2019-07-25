@@ -12,6 +12,13 @@ const ProfilePins = ({ text }, props) => (
   </div>
 );
 
+const Circle = ({ text }, props) => (
+
+  <div className='map-circle'>
+    {text}
+  </div>
+);
+
 class SearchMap extends Component {
   //default zoom to Toronto
   static defaultProps = {
@@ -22,7 +29,17 @@ class SearchMap extends Component {
     zoom: 10
   };
 
-  render() {
+   render() {
+
+    let circleValue;
+    let profilePage = true;
+    if (profilePage) {
+      circleValue = (<Circle
+        center={{lat:this.props.profiles[0].home_lat, lng:this.props.profiles[0].home_long }}
+        radius={500}
+        text="My Marker" />)
+    }
+
 
     return (
       // create map and add a pin for each profile
@@ -45,6 +62,7 @@ class SearchMap extends Component {
             />
           )
          })}
+         {circleValue}
 
         </GoogleMapReact>
       </div>
