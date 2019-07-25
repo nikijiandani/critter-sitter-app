@@ -1,51 +1,54 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import Map from './Map';
 import Reviews from './Reviews';
 import './styles/profile.css';
 import { Form, Button, Carousel } from 'react-bootstrap';
 
 
-
-
 class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      profiles:
-        { 
-          id: 1,
-          first_name: "Dudley",
-          last_name: "Maggio",
-          location: "500 Kingston Rd, ON M4L 1V3", 
-          num_of_ratings: 2,
-          avatar: "https://api.adorable.io/avatars/111/Dudley5@gmail.com.png",
-          images: ["http://hsmo.zurihosting.com/wp-content/uploads/2016/06/Pebbles2-A608071a.jpg", "https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg", "https://www.inquirer.com/resizer/iI306f5uOeqNIdt9yTnwaQE583I=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/KRGVV5DRABH3BPHJWDFSICAEVA.jpg"],
-          home_coords:[-79.3049261, 43.6779947]
-        },
-      reviews: []
-    }    
+      profiles: {},
+      reviews: [
+          {
+            first_name: "Marc",
+            content: "This is an awesome review",
+          },
+          {
+            first_name: "Reid",
+            content: "This is also an awesome review",
+          },
+        ]
+    }
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/api/reviews?profile_id=${this.state.profiles.id}`)
+
+    const lookup_id = this.props.match.params.id ? this.props.match.params.id : 0;
+
+    fetch('http://localhost:8080/api/users?id=' + lookup_id)
     .then(results => {
       results.json().then((res) => {
-        console.log(res)
+        console.log(res, res[0].images[0].image, res[0].reviews[0]) //debug
         this.setState({
-          reviews: res
+          profiles: res[0] // individual profile is first result
         });
       })
     })
+
   }
 
   handleSubmit = (e) => {
-    let profile_id = this.state.profiles.id
+    
     let newReview = {
       from_id: 10,
-      to_id: profile_id,
+      to_id: 1,
+      rating: 5,
       content: e.target.elements[0].value
     };
+
     e.preventDefault();
     e.target.elements[0].value = ""
     fetch('http://localhost:8080/api/reviews', {
@@ -74,13 +77,13 @@ class Profile extends Component {
             </div>
 
             <div className="profile-text">
-              <div className="profile-name">    
+              <div className="profile-name">
                   <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
                   <Link to="/profile/:id/contact" className="btn btn-info">Contact</Link>
               </div>
               <div className="profile-info">
                   <h6>{this.state.profiles.location}</h6>
-                  <p>Number of Ratings: {this.state.reviews.length}</p>
+                  <p>Average Rating: {this.state.profiles.avg_rating ? this.state.profiles.avg_rating : 'Not Rated Yet'} </p>
               </div>
             </div>
           </div>
@@ -89,26 +92,26 @@ class Profile extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.state.profiles.images[0]}
+                src="http://hsmo.zurihosting.com/wp-content/uploads/2016/06/Pebbles2-A608071a.jpg"
                 alt="First slide"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.state.profiles.images[1]}
+                src="https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg"
                 alt="Third slide"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={this.state.profiles.images[2]}
+                src="https://www.inquirer.com/resizer/iI306f5uOeqNIdt9yTnwaQE583I=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/KRGVV5DRABH3BPHJWDFSICAEVA.jpg"
                 alt="Third slide"
               />
             </Carousel.Item>
           </Carousel>
-          
+
           <Form className="review-form" onSubmit={this.handleSubmit}>
             <Form.Group>
               <Form.Label>Add a Review:</Form.Label>
@@ -126,7 +129,7 @@ class Profile extends Component {
         </div>
       </div>
     )
-  }  
+  }
 }
 
 export default Profile;
