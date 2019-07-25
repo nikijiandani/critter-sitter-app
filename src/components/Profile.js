@@ -10,17 +10,10 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      profiles: {},
-      reviews: [
-          {
-            first_name: "Marc",
-            content: "This is an awesome review",
-          },
-          {
-            first_name: "Reid",
-            content: "This is also an awesome review",
-          },
-        ]
+      profiles: {
+        images: []
+      },
+      reviews: []
     }
   }
 
@@ -31,7 +24,6 @@ class Profile extends Component {
     fetch('http://localhost:8080/api/users?id=' + lookup_id)
     .then(results => {
       results.json().then((res) => {
-        console.log(res, res[0].images[0].image, res[0].reviews[0]) //debug
         this.setState({
           profiles: res[0] // individual profile is first result
         });
@@ -89,27 +81,17 @@ class Profile extends Component {
           </div>
 
           <Carousel className="profile-images">
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="http://hsmo.zurihosting.com/wp-content/uploads/2016/06/Pebbles2-A608071a.jpg"
-                alt="First slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg"
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://www.inquirer.com/resizer/iI306f5uOeqNIdt9yTnwaQE583I=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/KRGVV5DRABH3BPHJWDFSICAEVA.jpg"
-                alt="Third slide"
-              />
-            </Carousel.Item>
+            {this.state.profiles.images.map((image, index) => {
+              return (
+                <Carousel.Item key={index}>
+                  <img
+                    className="d-block w-100"
+                    src={image.image}
+                    alt="sliding-images-of-user-or-their-pet"
+                  />
+                </Carousel.Item>
+              )
+            })}
           </Carousel>
 
           <Form className="review-form" onSubmit={this.handleSubmit}>
