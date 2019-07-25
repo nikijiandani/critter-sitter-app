@@ -7,51 +7,28 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
+      distance: '',
       city: "Toronto",
-      profiles: [
-        // {
-        //   id: 1,
-        //   first_name: "Blueberry",
-        //   last_name: "Pie",
-        //   rating: 5,
-        //   avatar: "https://api.adorable.io/avatars/250/blueberry@gmail.com.png",
-        //   home_coords:[-79.3049261, 43.6779947]
-        // },
-        // {
-        //   id: 2,
-        //   first_name: "Apple",
-        //   last_name: "Tart",
-        //   rating: 5,
-        //   avatar: "https://api.adorable.io/avatars/250/apple@gmail.com.png",
-        //   home_coords:[-79.4160545, 43.7295661]
-        // },
-        // {
-        //   id: 3,
-        //   first_name: "Raspberry",
-        //   last_name: "Scone",
-        //   rating: 4.9,
-        //   avatar: "https://api.adorable.io/avatars/250/raspberry@gmail.com.png",
-        //   home_coords:[-79.3983443, 43.6878955]
-        // },
-        // {
-        //   id: 4,
-        //   first_name: "Strawberry",
-        //   last_name: "Cheesecake",
-        //   rating: 4.8,
-        //   avatar: "https://api.adorable.io/avatars/250/strawberry@gmail.com.png",
-        //   home_coords:[-79.2919107, 43.6711546]
-        // },
-        // {
-        //   id: 5,
-        //   first_name: "Apple",
-        //   last_name: "Pie",
-        //   rating: 5,
-        //   avatar: "https://api.adorable.io/avatars/250/appleP@gmail.com.png",
-        //   home_coords:[-79.3052774, 43.6743661]
-        // },
-      ]
+      profiles: []
     }
   }
+
+  handleChange = event => {
+    this.setState({distance: event.target.value});
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    fetch(`http://localhost:8080/api/users?dist_from_id=1&dist_metres=${this.state.distance}`)
+    .then(results => {
+      results.json().then((res) => {
+        console.log(res)
+        this.setState({
+          profiles: res
+        });
+      })
+    })    
+  }  
 
   componentDidMount() {
     fetch('http://localhost:8080/api/users')
@@ -62,12 +39,22 @@ class Search extends Component {
           profiles: res
         });
       })
-    })
+    }) 
   }
 
   render() {
     return (
       <div className="search">
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <strong>Show me people within</strong>
+            <input style={{width: '25%'}} type="text"
+                   value={this.state.distance} onChange={this.handleChange} />
+            <strong>meters of me</strong>
+          </label>
+          <input style={{backgroundColor: '#5bc0de'}}
+                 type="submit" value="Submit" />
+        </form>        
         <h3>Sitters in {this.state.city}</h3>
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component"/>
