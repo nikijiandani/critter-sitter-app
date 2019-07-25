@@ -1,25 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles/profile.css';
 import './styles/reviews.css';
+import Review from './Review'
 
-function Reviews(props) {
-
-  return (
-    <div className="profile-review">
-        <h4>Reviews</h4>
-        <ul className="reviews">
-        {props.reviews.map((review, index) => {
-            return (
-                <div key={index} className="review-item">
-                    <p className="reviewer-name">{review.from_name}: </p>
-                    <span className="text-muted">{review.created_at}</span>
-                    <p>{review.content}</p>
-                </div>
-            )
-        })}
-        </ul>
-    </div>
-  )
+class Reviews extends Component {
+  render(){
+    const reviews = this.props.reviews.map((review, index) => {
+      return <Review key={index} review={review}/>
+    })
+    return (
+      <div className="profile-review">
+          <h4>Reviews</h4>
+          <div className="reviews">
+              {reviews}
+          </div>
+      </div>
+    )
+  }
 }
 
 export default Reviews;
