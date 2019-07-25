@@ -25,40 +25,34 @@ class Messages extends Component {
     if (!this.state.data) {
       return (<div></div>)
     }
+
     return (
       <div className="message-container">
-        <div className="message-block-to">
-          <h4>Messages To {this.state.data.first_name}</h4>
+        <div className="message-block">
+          <h4>Messages</h4>
           <ul className="message-list">
-            <div className="message-item">
-                  {this.state.data.to_me.map((to, ind) =>
-                    <div key={ind}>
-                      <h5>{to.first_name} {to.last_name}:</h5>
-                      <p>{to.content}</p>
-                      <p>{new Date(to.created_at).toLocaleString()}</p>
-                    </div>   
+                  {this.state.data.map((msg, index) =>
+                    <div key={index}>
+                    { msg.msg_dir === "fromuser" ?
+                    <span className="message-item-fromuser">
+                      <h5>Dudley Maggio:</h5>
+                      <p>{msg.content}</p>
+                      <p>{new Date(msg.created_at).toLocaleString()}</p>
+                    </span>  
+                    :
+                    <span className="message-item-touser">
+                      <h5>{msg.first_name} {msg.last_name}:</h5>
+                      <p>{msg.content}</p>
+                      <p>{new Date(msg.created_at).toLocaleString()}</p>
+                    </span>  
+                    } 
+                    </div>
                   )}
-            </div>
           </ul>
         </div>
-
-        <div className="message-block-from">
-          <h4>Messages From {this.state.data.first_name}</h4>
-          <ul className="message-list">
-            <div className="message-item">
-                  {this.state.data.from_me.map((from, ind) =>
-                    <div key={ind}>
-                      <h5>{from.first_name} {from.last_name}:</h5>
-                      <p>{from.content}</p>
-                      <p>{new Date(from.created_at).toLocaleString()}</p>
-                    </div>   
-                  )}
-            </div>
-          </ul>
-        </div>        
       </div>
     )
   }
 }
 
-export default Messages;
+export default Messages;                         
