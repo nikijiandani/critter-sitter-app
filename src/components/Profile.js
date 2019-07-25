@@ -31,7 +31,7 @@ class Profile extends Component {
     fetch('http://localhost:8080/api/users?id=' + lookup_id)
     .then(results => {
       results.json().then((res) => {
-        console.log(res, res[0].images[0].image) //debug
+        console.log(res, res[0].images[0].image, res[0].reviews[0]) //debug
         this.setState({
           profiles: res[0] // individual profile is first result
         });
@@ -41,11 +41,14 @@ class Profile extends Component {
   }
 
   handleSubmit = (e) => {
+
     let newReview = {
       from_id: 10,
       to_id: 1,
-      review: e.target.elements[0].value
+      rating: 5,
+      content: e.target.elements[0].value
     };
+
     e.preventDefault();
     e.target.elements[0].value = ""
     fetch('http://localhost:8080/api/reviews', {

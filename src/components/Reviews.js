@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/profile.css';
 
 function Reviews(props) {
-  
+
   return (
     <div className="profile-review">
         <h4>Reviews</h4>
