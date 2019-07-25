@@ -16,34 +16,43 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      users: []
+      currentLoggedInUser: null
     }
   }
 
+  handleLogout = (e) => {
+    e.preventDefault();
+    console.log(e.target)
+    localStorage.clear()
+    this.setState({
+      currentLoggedInUser: null
+    })
+  }
 
-  componentDidMount() {
-    fetch('http://localhost:8080/api/users')
-    .then(results => {
-      results.json().then((res) => {
-        console.log(res)
-        this.setState({
-          users: res
-        });
-      })
+  handleLogin = (e) => {
+    e.preventDefault();
+    localStorage.setItem('loggedInUsersEmail', e.target.elements[0].value)
+    this.setState({
+      currentLoggedInUser: { email: e.target.elements[0].value }
     })
   }
 
   render() {
     return (
       <Router>
-        <Mynavbar />
+        <Mynavbar handleLogout={this.handleLogout} currentUser={this.state.currentLoggedInUser}/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/search/" component={Search} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route path="/profile/:id/contact" component={Contact} />
           <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" render={(routeProps) => (
+            <Login 
+            handleLogin = {this.handleLogin} 
+            currentUser = {this.state.currentLoggedInUser}
+            />
+          )}/>
           <Route path="/messages" component={Messages} />
           <Route component={Error} />
         </Switch>
