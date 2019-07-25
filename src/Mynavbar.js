@@ -2,7 +2,7 @@ import React from 'react'
 import logo from './logo.svg';
 import {Navbar, Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Mynavbar = () => {
   return(
@@ -22,8 +22,8 @@ const Mynavbar = () => {
         <Nav>
           <Nav.Link href="/signup">Signup</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link className="message-bell" href="/messages">
-            <FontAwesomeIcon icon={faBell} />
+          <Nav.Link className="message-icon" href="/messages">
+            <FontAwesomeIcon icon={faEnvelope} />
           </Nav.Link>               
         </Nav>
       </Navbar.Collapse>

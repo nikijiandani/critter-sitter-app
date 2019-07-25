@@ -9,7 +9,17 @@
 .message-list {
     padding: 0;
 }
-  
+
+.message-item-touser {
+    display: block;
+    background-color: lightskyblue;
+}
+
+.message-item-fromuser {
+    display: block;
+    background-color: lightpink;
+}
+
 @media (min-width: 768px){
     .message-container {
       width: 80%;
