@@ -3,7 +3,7 @@ import './styles/profile.css';
 import './styles/reviews.css';
 
 function Reviews(props) {
-  
+
   return (
     <div className="profile-review">
         <h4>Reviews</h4>
