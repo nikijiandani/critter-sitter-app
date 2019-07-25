@@ -17,7 +17,10 @@ function ProfileList(props) {
           <img src={user.avatar} alt="avatar" className="avatar" />
           <div>
             <span>{user.user_id}.</span>
-            <Link to={`/profile/${user.user_id}`}>{user.first_name}</Link>
+            <Link to={`/profile/${user.user_id}`}>{user.first_name} {user.last_name}</Link>
+            <div className="pet-icons">
+              Pet Icons
+            </div>
             <div className="rating">
               <StarRatingComponent 
                   name="rate1" 
