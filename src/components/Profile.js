@@ -11,9 +11,9 @@ class Profile extends Component {
     super()
     this.state = {
       profiles: {
-        images: []
+        images: [],
+        reviews: []
       },
-      reviews: []
     }
   }
 
@@ -102,7 +102,7 @@ class Profile extends Component {
             <Button variant="primary" type="submit" >Submit</Button>
           </Form>
 
-          <Reviews reviews={this.state.reviews}/>
+          <Reviews reviews={this.state.profiles.reviews}/>
         </div>
 
         <div className="profile-map">
