@@ -37,13 +37,13 @@ class Messages extends Component {
                     <span className="message-item-fromuser">
                       <h5>Dudley Maggio:</h5>
                       <p>{msg.content}</p>
-                      <p>{new Date(msg.created_at).toLocaleString()}</p>
+                      <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
                     </span>  
                     :
                     <span className="message-item-touser">
                       <h5>{msg.first_name} {msg.last_name}:</h5>
                       <p>{msg.content}</p>
-                      <p>{new Date(msg.created_at).toLocaleString()}</p>
+                      <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
                     </span>  
                     } 
                     </div>

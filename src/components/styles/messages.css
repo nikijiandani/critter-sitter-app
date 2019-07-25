@@ -20,6 +20,10 @@
     background-color: lightpink;
 }
 
+.text-muted {
+    font-style: italic;
+} 
+
 @media (min-width: 768px){
     .message-container {
       width: 80%;
