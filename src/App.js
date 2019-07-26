@@ -32,8 +32,12 @@ class App extends Component {
   handleLogin = (e) => {
     e.preventDefault();
     localStorage.setItem('loggedInUsersEmail', e.target.elements[0].value)
+    localStorage.setItem('loggedInUsersId', e.target.elements[1].value)
     this.setState({
-      currentLoggedInUser: { email: e.target.elements[0].value }
+      currentLoggedInUser: { 
+        email: e.target.elements[0].value,
+        id: e.target.elements[1].value
+      }
     })
   }
 
@@ -53,7 +57,11 @@ class App extends Component {
             currentUser = {this.state.currentLoggedInUser}
             />
           )}/>
-          <Route path="/messages" component={Messages} />
+          <Route path="/messages" render={(routeProps) => (
+            <Messages 
+            currentUser = {this.state.currentLoggedInUser}
+            />
+          )} />
           <Route component={Error} />
         </Switch>
       </Router>

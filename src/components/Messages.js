@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import './styles/messages.css'
 
 class Messages extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      data: null
-    }    
+      data: null,
+
+    }
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/api/messages?user_id=1')
+
+    const currentUserId = 3
+
+    fetch(`http://localhost:8080/api/messages?user_id=${currentUserId}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -31,23 +35,23 @@ class Messages extends Component {
         <div className="message-block">
           <h4>Messages</h4>
           <ul className="message-list">
-                  {this.state.data.map((msg, index) =>
-                    <div key={index}>
-                    { msg.msg_dir === "fromuser" ?
-                    <span className="message-item-fromuser">
-                      <h5>Dudley Maggio:</h5>
-                      <p>{msg.content}</p>
-                      <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
-                    </span>  
-                    :
-                    <span className="message-item-touser">
-                      <h5>{msg.first_name} {msg.last_name}:</h5>
-                      <p>{msg.content}</p>
-                      <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
-                    </span>  
-                    } 
-                    </div>
-                  )}
+            {this.state.data.map((msg, index) =>
+              <div key={index}>
+              { msg.msg_dir === "fromuser" ?
+              <span className="message-item-fromuser">
+                <h5>Me:</h5>
+                <p>{msg.content}</p>
+                <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
+              </span>  
+              :
+              <span className="message-item-touser">
+                <h5>{msg.first_name} {msg.last_name}:</h5>
+                <p>{msg.content}</p>
+                <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
+              </span>  
+              } 
+              </div>
+            )}
           </ul>
         </div>
       </div>
