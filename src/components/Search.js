@@ -7,19 +7,27 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
-      distance: '',
+      distance: 'select',
       city: "Toronto",
       profiles: []
     }
   }
 
   handleChange = event => {
-    this.setState({distance: event.target.value});
+    this.setState({
+      distance: event.target.value
+    });
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    fetch(`http://localhost:8080/api/users?dist_from_id=1&dist_metres=${this.state.distance}`)
+    let distance;
+    if (this.state.distance != 0) {
+      distance = this.state.distance * 1000;
+    } else {
+      distance = this.state.distance;
+    }
+    fetch(`http://localhost:8080/api/users?dist_from_id=1&dist_metres=${distance}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -28,7 +36,7 @@ class Search extends Component {
         });
       })
     })    
-  }  
+  }
 
   componentDidMount() {
     fetch('http://localhost:8080/api/users')
@@ -48,11 +56,18 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             <strong>Show me people within</strong>
-            <input style={{width: '25%'}} type="text"
-                   value={this.state.distance} onChange={this.handleChange} />
-            <strong>meters of me</strong>
+            <select style={{width: '39%'}} type="text"
+                    onChange={this.handleChange} value={this.state.distance}>
+              <option value="select">Select Distance</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <strong>KM</strong>
           </label>
-          <input style={{backgroundColor: '#5bc0de'}}
+          <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
                  type="submit" value="Submit" />
         </form>        
         <h3>Sitters in {this.state.city}</h3>

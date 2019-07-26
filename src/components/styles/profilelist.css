@@ -12,9 +12,9 @@
   display: flex;
   margin-bottom: 0.1em;
 }
-.item div {
+/* .item div {
   padding: 0.2em;
-}
+} */
 .item p {
   margin: 0;
 }
@@ -23,15 +23,22 @@
   height: 5em;
 }
 .item .rating {
-  padding: 0;
+  /* padding: 0; */
+  font-size: 1.5em;
+}
+.pet-icon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 2em;
 }
 @media (min-width: 576px) {
   .item {
     border-radius: 0;
   }
-  .item div {
+  /* .item div {
     padding: 1em;
-  }
+  } */
   .item span {
     font-size: 1.1em;
     font-weight: 500;
@@ -62,7 +69,7 @@
     font-size: 1.3em;
     font-weight: 500;
   }
-  .profile-list {
+  .profilelist {
     width: 60%;
   }
   .item {

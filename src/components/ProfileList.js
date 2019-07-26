@@ -18,8 +18,12 @@ function ProfileList(props) {
           <div>
             <span>{user.user_id}.</span>
             <Link to={`/profile/${user.user_id}`}>{user.first_name} {user.last_name}</Link>
-            <div className="pet-icons">
-              Pet Icons
+            <div className="pet-icon">
+                 {user.sitter_pet_types.map((pet) => 
+                 <div key={pet.pet_type_id}>
+                  {pet.icon}
+                 </div>
+                 )}
             </div>
             <div className="rating">
               <StarRatingComponent 
