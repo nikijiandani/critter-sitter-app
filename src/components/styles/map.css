@@ -15,15 +15,16 @@
   border-radius: 5px;
 }
 .map-circle {
-  border: 1px solid red;
+  border: 2px solid red;
   font-weight: bold;
-  color: red;
+  background-color: rgba(249, 0, 0, 0.19);
   display: block;
-  height: 60px;
-  width: 60px;
+  height: 15em;
+  width: 15em;
   line-height: 60px;
-  -moz-border-radius: 30px; /* or 50% */
-  border-radius: 30px; /* or 50% */
+  -moz-border-radius: 50%; /* or 50% */
+  border-radius: 50%; /* or 50% */
+  transform: translate(-35%, -42%)
 }
 @media (min-width: 992px) {
   .map {

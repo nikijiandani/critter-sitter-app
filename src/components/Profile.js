@@ -107,7 +107,7 @@ class Profile extends Component {
 
         <div className="profile-map">
           <h4>{this.state.profiles.first_name}'s Neighbourhood</h4>
-          <Map profiles={[this.state.profiles]} />
+          <Map profiles={[this.state.profiles]} profilePageExists={true} zoom={13}/>
         </div>
       </div>
     )
