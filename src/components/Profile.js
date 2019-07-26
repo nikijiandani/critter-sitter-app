@@ -43,7 +43,7 @@ class Profile extends Component {
   handleSubmit = (e) => {
 
     let newReview = {
-      from_id: 10, //HARDCODED
+      from_id: localStorage.getItem('loggedInUsersId'),
       to_id: this.state.lookup_id,
       rating: 5, //HARDCODED
       content: e.target.elements[0].value
@@ -82,7 +82,7 @@ class Profile extends Component {
             <div className="profile-text">
               <div className="profile-name">
                   <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
-                  <Link to="/profile/:id/contact" className="btn btn-info">Contact</Link>
+                  <Link to={`/profile/${this.state.lookup_id}/contact?name=${this.state.profiles.first_name}`} className="btn btn-info">Contact</Link>
               </div>
               <div className="profile-info">
                   <div className="profile-pet-icon">
@@ -122,14 +122,18 @@ class Profile extends Component {
               )
             })}
           </Carousel>
-
-          <Form className="review-form" onSubmit={this.handleSubmit}>
-            <Form.Group>
-              <Form.Label>Add a Review:</Form.Label>
-              <Form.Control as="textarea" />
-            </Form.Group>
-            <Button variant="primary" type="submit" >Submit</Button>
-          </Form>
+          
+          {localStorage.getItem('loggedInUsersId') ? (
+            <Form className="review-form" onSubmit={this.handleSubmit}>
+              <Form.Group>
+                <Form.Label>Add a Review:</Form.Label>
+                <Form.Control as="textarea" />
+              </Form.Group>
+              <Button variant="primary" type="submit" >Submit</Button>
+            </Form>
+          ) : (
+            ""
+          )}
 
           {this.state.profiles.reviews ? <Reviews reviews={this.state.profiles.reviews}/> : "No reviews yet. Be the first!"}
 
