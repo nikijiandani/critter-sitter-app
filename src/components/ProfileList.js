@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import StarRatingComponent from 'react-star-rating-component';
 
 function ProfileList(props) {
-
-  const onStarClick = (nextValue, prevValue, name) => {
-    this.setState({rating: nextValue});
-  }
-
   return (
     <ul className="profilelist">
       {props.profiles.map(user => {
@@ -25,13 +20,15 @@ function ProfileList(props) {
                  </div>
                  )}
             </div>
+            <div className="location">
+              {user.city}, ON, {user.postal_code}
+            </div>
             <div className="rating">
               <StarRatingComponent 
                   name="rate1" 
                   starCount={5}
                   value={parseInt(user.avg_rating)}
-                  onStarClick={onStarClick}
-                />
+              />
             </div>
           </div>
         </li>

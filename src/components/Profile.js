@@ -4,6 +4,7 @@ import Map from './Map';
 import Reviews from './Reviews';
 import './styles/profile.css';
 import { Form, Button, Carousel } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 class Profile extends Component {
@@ -11,6 +12,7 @@ class Profile extends Component {
     super()
     this.state = {
       profiles: {
+        sitter_pet_types: [],
         images: [],
         reviews: []
       },
@@ -74,10 +76,28 @@ class Profile extends Component {
                   <Link to="/profile/:id/contact" className="btn btn-info">Contact</Link>
               </div>
               <div className="profile-info">
-                  <h6>{this.state.profiles.location}</h6>
-                  <p>Average Rating: {this.state.profiles.avg_rating ? this.state.profiles.avg_rating : 'Not Rated Yet'} </p>
+                  <div className="profile-pet-icon">
+                    {this.state.profiles.sitter_pet_types.map((pet) => 
+                    <div key={pet.pet_type_id}>
+                    {pet.icon}
+                    </div>
+                    )}
+                  </div>
+                  <p>{this.state.profiles.city}, ON, {this.state.profiles.postal_code}</p>
+                  <div className="profile-rating">
+                  <StarRatingComponent 
+                      name="rate1" 
+                      starCount={5}
+                      value={parseInt(this.state.profiles.avg_rating)}
+                  />
+                  </div>
               </div>
+
             </div>
+          </div>
+
+          <div className="profile-bio">
+            <strong>{this.state.profiles.first_name} says:</strong> <i>{this.state.profiles.bio}</i>
           </div>
 
           <Carousel className="profile-images">
