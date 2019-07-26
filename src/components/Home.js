@@ -7,11 +7,6 @@ import './styles/home.css';
 class Home extends Component {
   constructor(){
     super()
-    this.state = {
-      distance: 'select',
-      city: "Toronto",
-      profiles: []
-    }
   }
 
   render() {  
