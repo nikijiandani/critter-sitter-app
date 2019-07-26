@@ -12,7 +12,7 @@ class Messages extends Component {
 
   componentDidMount() {
 
-    const currentUserId = 3
+    const currentUserId = localStorage.getItem('loggedInUsersId')
 
     fetch(`http://localhost:8080/api/messages?user_id=${currentUserId}`)
     .then(results => {

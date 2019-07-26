@@ -23,10 +23,10 @@ class Mynavbar extends Component{
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
-            { this.props.currentUser ? (
+            { localStorage.getItem('loggedInUsersEmail') ? (
               <>
                 <Navbar.Text>
-                  Logged in as:{this.props.currentUser.email}
+                  Logged in as:{localStorage.getItem('loggedInUsersEmail')}
                 </Navbar.Text>
                 <Button onClick={this.props.handleLogout}>Logout</Button>
                 <Link className="message-icon" to="/messages">
