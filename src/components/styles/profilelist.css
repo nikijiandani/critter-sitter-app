@@ -12,8 +12,8 @@
   display: flex;
   margin-bottom: 0.1em;
 }
-.item p {
-  margin: 0;
+.item-details {
+  padding: 0.2em;
 }
 .avatar {
   width: 5em;
@@ -22,6 +22,11 @@
 .item .rating {
   font-size: 1.5em;
 }
+.pet-text {
+  font-weight: bold;
+  font-style: italic;
+  padding-right: 0.2em;
+} 
 .pet-icon {
   display: flex;
   flex-direction: row;
@@ -72,4 +77,10 @@
   .item {
     width: 100%;
   }
+ .pet {
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    align-items: center;
+  } 
 }

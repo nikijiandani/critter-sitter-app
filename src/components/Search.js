@@ -81,8 +81,12 @@ class Search extends Component {
           </label>
           <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
                  type="submit" value="Submit" />
-        </form>        
-        <h3>Sitters in {this.state.city}</h3>
+        </form>
+        { this.props.match.params.role === "sitter" ?
+          <h3>Critter Sitters in {this.state.city}</h3>
+          :
+          <h3>Critter Owners in {this.state.city}</h3>      
+        }     
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component" zoom={11}/>
           <ProfileList profiles={this.state.profiles}/>
