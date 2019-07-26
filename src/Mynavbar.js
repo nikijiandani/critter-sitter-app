@@ -10,7 +10,7 @@ class Mynavbar extends Component{
   render () {
     return(
       <Navbar className="nav-color" expand="lg">
-        <Navbar.Brand href="/">
+        <Link to="/">
           <img
           src={logo}
           width="30"
@@ -19,7 +19,7 @@ class Mynavbar extends Component{
           alt="logo"
           />
           {' critterSitter'}
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>

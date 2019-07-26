@@ -43,7 +43,7 @@ class App extends Component {
         <Mynavbar handleLogout={this.handleLogout} currentUser={this.state.currentLoggedInUser}/>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/search/" component={Search} />
+          <Route path="/search/:role" component={Search} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route path="/profile/:id/contact" component={Contact} />
           <Route path="/signup" component={Signup} />
