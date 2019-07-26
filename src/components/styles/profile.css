@@ -2,17 +2,14 @@
   display: flex;
   flex-direction: column;
 }
-
 .profile-container form {
   width: 100%;
 }
-
 .profile-left {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .profile-header {
   display: flex;
   flex-direction: column;
@@ -20,39 +17,42 @@
   align-items: center;
   text-align: center;
 }
-
 .profile-images {
   display: none;
 }
-
 .profile-images img {
   width: 20em;
   height: 20em;
 }
-
 .profile-info {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
+    font-weight: bold;
 }
-
 .profile-name {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
+.profile-pet-icon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  font-size: 2.2em;
+}
+.profile-rating {
+  font-size: 1.2em;
+}
 .profile-review {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
 .reviews {
   padding: 0;
   margin: 0 0.2em;
 }
-
 @media (min-width: 768px) {
   .profile-container {
     padding-top: 1em;
