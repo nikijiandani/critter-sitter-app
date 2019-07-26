@@ -57,7 +57,7 @@ class Search extends Component {
         </form>        
         <h3>Sitters in {this.state.city}</h3>
         <div className="search-container">
-          <Map profiles={this.state.profiles} className="map-component"/>
+          <Map profiles={this.state.profiles} className="map-component" zoom={11}/>
           <ProfileList profiles={this.state.profiles}/>
         </div>
       </div>
