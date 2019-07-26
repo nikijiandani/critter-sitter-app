@@ -14,32 +14,38 @@ class Profile extends Component {
       profiles: {
         sitter_pet_types: [],
         images: [],
-        reviews: []
+        reviews: [],
+        lookup_id: 0
       },
     }
   }
 
   componentDidMount() {
 
-    const lookup_id = this.props.match.params.id ? this.props.match.params.id : 0;
+    let lookupProfileID = this.props.match.params.id ? this.props.match.params.id : 0;
+    this.getProfiles(lookupProfileID)
 
-    fetch('http://localhost:8080/api/users?id=' + lookup_id)
+  }
+
+  getProfiles = (pid) => {
+    fetch('http://localhost:8080/api/users?id=' + pid)
     .then(results => {
       results.json().then((res) => {
         this.setState({
-          profiles: res[0] // individual profile is first result
+          profiles: res[0], // individual profile is first result
+          lookup_id: pid
         });
       })
     })
 
-  }
+  };
 
   handleSubmit = (e) => {
-    
+
     let newReview = {
-      from_id: 10,
-      to_id: 1,
-      rating: 5,
+      from_id: 10, //HARDCODED
+      to_id: this.state.lookup_id,
+      rating: 5, //HARDCODED
       content: e.target.elements[0].value
     };
 
@@ -56,7 +62,10 @@ class Profile extends Component {
       body: JSON.stringify(newReview)
     })
     .then(res => res.json())
-    .then((response) => console.log("Success:", JSON.stringify(response)))
+    .then((response) => {
+      this.getProfiles(this.state.lookup_id) // refetch reviews
+      console.log("Success:", JSON.stringify(response))
+    })
     .catch(error => console.log('Error:', error))
   }
 
@@ -77,7 +86,7 @@ class Profile extends Component {
               </div>
               <div className="profile-info">
                   <div className="profile-pet-icon">
-                    {this.state.profiles.sitter_pet_types.map((pet) => 
+                    {this.state.profiles.sitter_pet_types.map((pet) =>
                     <div key={pet.pet_type_id}>
                     {pet.icon}
                     </div>
@@ -85,8 +94,8 @@ class Profile extends Component {
                   </div>
                   <p>{this.state.profiles.city}, ON, {this.state.profiles.postal_code}</p>
                   <div className="profile-rating">
-                  <StarRatingComponent 
-                      name="rate1" 
+                  <StarRatingComponent
+                      name="rate1"
                       starCount={5}
                       value={parseInt(this.state.profiles.avg_rating)}
                   />
@@ -122,7 +131,8 @@ class Profile extends Component {
             <Button variant="primary" type="submit" >Submit</Button>
           </Form>
 
-          <Reviews reviews={this.state.profiles.reviews}/>
+          {this.state.profiles.reviews ? <Reviews reviews={this.state.profiles.reviews}/> : "No reviews yet. Be the first!"}
+
         </div>
 
         <div className="profile-map">

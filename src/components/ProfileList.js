@@ -10,15 +10,19 @@ function ProfileList(props) {
         return (
         <li className="item" key={user.user_id}>
           <img src={user.avatar} alt="avatar" className="avatar" />
-          <div>
-            <span>{user.user_id}.</span>
+          <div className="item-details">
             <Link to={`/profile/${user.user_id}`}>{user.first_name} {user.last_name}</Link>
-            <div className="pet-icon">
-                 {user.sitter_pet_types.map((pet) => 
-                 <div key={pet.pet_type_id}>
-                  {pet.icon}
-                 </div>
-                 )}
+            <div className="pet">
+              <div className="pet-text">
+              Looks after
+              </div>
+              <div className="pet-icon">
+                  {user.sitter_pet_types.map((pet) => 
+                  <div key={pet.pet_type_id}>
+                    {pet.icon}
+                  </div>
+                  )}
+              </div>
             </div>
             <div className="location">
               {user.city}, ON, {user.postal_code}
