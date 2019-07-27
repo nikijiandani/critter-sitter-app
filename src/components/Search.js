@@ -22,7 +22,7 @@ class Search extends Component {
   handleSubmit = event => {
     event.preventDefault();
     let distance;
-    if (this.state.distance != 0) {
+    if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
     } else {
       distance = this.state.distance;

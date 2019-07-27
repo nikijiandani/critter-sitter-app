@@ -14,7 +14,11 @@ function ProfileList(props) {
             <Link to={`/profile/${user.user_id}`}>{user.first_name} {user.last_name}</Link>
             <div className="pet">
               <div className="pet-text">
-              Looks after
+                { user.role === 2 ?
+                <p>Looks after</p>
+                :
+                <p>Owns</p>
+                }
               </div>
               <div className="pet-icon">
                   {user.sitter_pet_types.map((pet) => 
