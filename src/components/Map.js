@@ -8,7 +8,7 @@ const GM_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 const ProfilePins = ({ text }, props) => (
 
   <div className='map-pins'>
-    {text}
+    { text }
   </div>
 );
 
@@ -65,7 +65,7 @@ class SearchMap extends Component {
               key={index}
               lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
               lng={mapProfile.home_long ? mapProfile.home_long : 0}
-              text={mapProfile.first_name}
+              text={index + 1}
             />
           )
          })}

@@ -10,10 +10,17 @@
   color: white;
   background-color: red;
   padding: 0.5em;
-  display: inline-flex;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid red;
+  border-radius: 20%;
+  font-size: 2em;
+  font-weight: 900;
+  width: 2em;
+  line-height: 1em;
+  text-align: center;
+  padding: 0.2em;
+  display: table-cell;
 }
+
 .map-circle {
   border: 2px solid red;
   font-weight: bold;
