@@ -1,5 +1,7 @@
-h3 {
+.user-title {
   padding: 0 0.2em;
+  background-color: black;
+  color: #DDA448;
 }
 .search-container {
   display: flex;
@@ -26,7 +28,7 @@ h3 {
   .search {
     padding: 0;
   }
-  h3 {
+  .user-title {
     font-size: 2em;
     width: 100%;
     text-align: center;

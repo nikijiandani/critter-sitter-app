@@ -38,8 +38,6 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.role)
-
     const role = this.props.match.params.role === "sitter" ?  2 : 1
 
   // "http://localhost:8080/api/users?role=2"    // Fetch sitters 
@@ -60,31 +58,37 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            { this.props.match.params.role === "sitter" ?
-            <strong>Critter sitters within</strong>
-            :
-            <strong>Critter owners within</strong>      
-            } 
-            <select style={{width: '31%'}} type="text"
-                    onChange={this.handleChange} value={this.state.distance}>
-              <option value="100">Any</option>
-              <option value="2">2</option>
-              <option value="5">5</option>
-              <option value="7">7</option>
-              <option value="10">10</option>
-            </select>
-            <strong>KM</strong>
-          </label>
-          <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
-                 type="submit" value="Show me" />
-        </form>
-        { this.props.match.params.role === "sitter" ?
-          <h3>Critter Sitters in {this.state.city}</h3>
+        { localStorage.getItem('loggedInUsersId') !== null ?
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              { this.props.match.params.role === "sitter" ?
+              <strong>Critter sitters within</strong>
+              :
+              <strong>Critter owners within</strong>      
+              } 
+              <select style={{width: '23%'}} type="text"
+                      onChange={this.handleChange} value={this.state.distance}>
+                <option value="100">Any</option>
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="10">10</option>
+              </select>
+              <strong>KM</strong>
+            </label>
+            <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
+                  type="submit" value="Show me" />
+          </form>
           :
-          <h3>Critter Owners in {this.state.city}</h3>      
-        }     
+          " "
+        }
+        <div className="user-title">
+          { this.props.match.params.role === "sitter" ?
+            <h3>Sitters</h3>
+            :
+            <h3>Owners</h3>      
+          }  
+        </div>   
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component" zoom={11}/>
           <ProfileList profiles={this.state.profiles}/>
