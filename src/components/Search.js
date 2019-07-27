@@ -7,9 +7,10 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
-      distance: 'select',
+      distance: 100,
       city: "Toronto",
-      profiles: []
+      profiles: [],
+      role: null
     }
   }
 
@@ -24,10 +25,8 @@ class Search extends Component {
     let distance;
     if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
-    } else {
-      distance = this.state.distance;
     }
-    fetch(`http://localhost:8080/api/users?dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
+    fetch(`http://localhost:8080/api/users?role=${this.state.role}&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -41,7 +40,7 @@ class Search extends Component {
   componentDidMount() {
     console.log(this.props.match.params.role)
 
-    const role = this.props.match.params.role === "sitter" ?  2 : 1 
+    const role = this.props.match.params.role === "sitter" ?  2 : 1
 
   // "http://localhost:8080/api/users?role=2"    // Fetch sitters 
   // "http://localhost:8080/api/users?role=1"    // Fetch customers
@@ -51,7 +50,8 @@ class Search extends Component {
       results.json().then((res) => {
         console.log(res)
         this.setState({
-          profiles: res
+          profiles: res,
+          role: role
         });
       })
     }) 
@@ -63,28 +63,22 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             { this.props.match.params.role === "sitter" ?
-            <strong>Show me critter sitters within</strong>
+            <strong>Critter sitters within</strong>
             :
-            <strong>Show me critter owners within</strong>      
+            <strong>Critter owners within</strong>      
             } 
             <select style={{width: '31%'}} type="text"
                     onChange={this.handleChange} value={this.state.distance}>
-              <option value="select">Any Distance</option>
-              <option value="1">1</option>
+              <option value="100">Any</option>
               <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
               <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
               <option value="10">10</option>
             </select>
             <strong>KM</strong>
           </label>
           <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
-                 type="submit" value="Submit" />
+                 type="submit" value="Show me" />
         </form>
         { this.props.match.params.role === "sitter" ?
           <h3>Critter Sitters in {this.state.city}</h3>
