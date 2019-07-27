@@ -49,7 +49,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/search/:role" component={Search} />
           <Route exact path="/profile/:id" component={Profile} />
-          <Route path="/profile/:id/contact" component={Contact} />
+          <Route path="/profile/:id/contact/:name" component={Contact} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" render={(routeProps) => (
             <Login 

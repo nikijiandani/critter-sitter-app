@@ -25,7 +25,7 @@
 .pet-text {
   font-weight: bold;
   font-style: italic;
-  padding-right: 0.2em;
+  padding-right: 0.3em;
 } 
 .pet-icon {
   display: flex;
@@ -33,6 +33,11 @@
   flex-wrap: wrap;
   font-size: 2em;
 }
+.pet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+} 
 .location {
   font-weight: bold;
   font-size: 1.2em;
@@ -49,14 +54,15 @@
     font-size: 1.2em;
     font-weight: 700;
   }
-  .item p {
-    font-size: 1.1em;
-    font-weight: 500;
-  }
   .avatar {
     width: 10em;
     height: 10em;
   }
+  .pet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }   
 }
 @media (min-width: 992px) {
   .item span {
@@ -66,10 +72,6 @@
   .item a {
     font-size: 1.6em;
     font-weight: 700;
-  }
-  .item p {
-    font-size: 1.3em;
-    font-weight: 500;
   }
   .profilelist {
     width: 60%;

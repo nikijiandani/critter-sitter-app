@@ -7,7 +7,7 @@ class Contact extends Component {
     return (
       <Form className="contact">
         <Form.Group controlId="formBasicMessage">
-          <Form.Label>Send message:</Form.Label>
+          <Form.Label>Send message to {this.props.match.params.name}:</Form.Label>
           <Form.Control as="textarea" placeholder="Enter message" />
         </Form.Group>
         <Button variant="primary" type="submit" className="myBtn" block>

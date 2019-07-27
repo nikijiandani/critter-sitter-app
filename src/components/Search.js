@@ -62,10 +62,14 @@ class Search extends Component {
       <div className="search">
         <form onSubmit={this.handleSubmit}>
           <label>
-            <strong>Show me people within</strong>
-            <select style={{width: '39%'}} type="text"
+            { this.props.match.params.role === "sitter" ?
+            <strong>Show me critter sitters within</strong>
+            :
+            <strong>Show me critter owners within</strong>      
+            } 
+            <select style={{width: '31%'}} type="text"
                     onChange={this.handleChange} value={this.state.distance}>
-              <option value="select">Select Distance</option>
+              <option value="select">Any Distance</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

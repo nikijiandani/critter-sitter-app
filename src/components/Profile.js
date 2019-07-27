@@ -82,7 +82,7 @@ class Profile extends Component {
             <div className="profile-text">
               <div className="profile-name">
                   <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
-                  <Link to={`/profile/${this.state.lookup_id}/contact?name=${this.state.profiles.first_name}`} className="btn btn-info">Contact</Link>
+                  <Link to={`/profile/${this.state.lookup_id}/contact/${this.state.profiles.first_name}`} className="btn btn-info">Contact</Link>           
               </div>
               <div className="profile-info">
                   <div className="profile-pet-icon">
