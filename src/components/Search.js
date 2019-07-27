@@ -10,7 +10,7 @@ class Search extends Component {
       distance: 100,
       city: "Toronto",
       profiles: [],
-      role: null
+      role: 1
     }
   }
 
@@ -26,7 +26,11 @@ class Search extends Component {
     if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
     }
-    fetch(`http://localhost:8080/api/users?role=${this.state.role}&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
+    let query = "";
+    if(localStorage.getItem('loggedInUsersId')){
+      query = `&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`
+    }
+    fetch(`http://localhost:8080/api/users?role=${this.state.role}${query}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -34,13 +38,13 @@ class Search extends Component {
           profiles: res
         });
       })
-    })    
+    })
   }
 
   componentDidMount() {
     const role = this.props.match.params.role === "sitter" ?  2 : 1
 
-  // "http://localhost:8080/api/users?role=2"    // Fetch sitters 
+  // "http://localhost:8080/api/users?role=2"    // Fetch sitters
   // "http://localhost:8080/api/users?role=1"    // Fetch customers
 
     fetch('http://localhost:8080/api/users?role=' + role)
@@ -52,7 +56,7 @@ class Search extends Component {
           role: role
         });
       })
-    }) 
+    })
   }
 
   render() {
@@ -64,11 +68,11 @@ class Search extends Component {
               { this.props.match.params.role === "sitter" ?
               <strong>Critter sitters within</strong>
               :
-              <strong>Critter owners within</strong>      
-              } 
+              <strong>Critter owners within</strong>
+              }
               <select style={{width: '23%'}} type="text"
                       onChange={this.handleChange} value={this.state.distance}>
-                <option value="100">Any</option>
+                <option value="100">All</option>
                 <option value="2">2</option>
                 <option value="5">5</option>
                 <option value="7">7</option>
@@ -86,9 +90,9 @@ class Search extends Component {
           { this.props.match.params.role === "sitter" ?
             <h3>Sitters</h3>
             :
-            <h3>Owners</h3>      
-          }  
-        </div>   
+            <h3>Owners</h3>
+          }
+        </div>
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component" zoom={11}/>
           <ProfileList profiles={this.state.profiles}/>
