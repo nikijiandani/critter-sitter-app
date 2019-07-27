@@ -9,7 +9,8 @@ class Search extends Component {
     this.state = {
       distance: 100,
       city: "Toronto",
-      profiles: []
+      profiles: [],
+      role: null
     }
   }
 
@@ -25,7 +26,7 @@ class Search extends Component {
     if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
     }
-    fetch(`http://localhost:8080/api/users?dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
+    fetch(`http://localhost:8080/api/users?role=${this.state.role}&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -49,7 +50,8 @@ class Search extends Component {
       results.json().then((res) => {
         console.log(res)
         this.setState({
-          profiles: res
+          profiles: res,
+          role: role
         });
       })
     }) 
@@ -68,15 +70,9 @@ class Search extends Component {
             <select style={{width: '31%'}} type="text"
                     onChange={this.handleChange} value={this.state.distance}>
               <option value="100">Any</option>
-              <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
               <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
               <option value="10">10</option>
             </select>
             <strong>KM</strong>
