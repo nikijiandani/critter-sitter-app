@@ -6,21 +6,20 @@ import StarRatingComponent from 'react-star-rating-component';
 function ProfileList(props) {
   return (
     <ul className="profilelist">
-      {props.profiles.map(user => {
-        console.log("This is localstrage", typeof localStorage.getItem('loggedInUsersId'))
-        console.log(typeof user.user_id)
-        if(user.user_id === parseInt(localStorage.getItem('loggedInUsersId'))){
+      {props.profiles.map((user, index) => {
+        if (user.user_id === parseInt(localStorage.getItem('loggedInUsersId'))) {
           return <li style={{display: "none"}} key={"do-not-show"}></li>
         } else {
           return (
           <li className="item" key={user.user_id}>
             <img src={user.avatar} alt="avatar" className="avatar" />
             <div className="item-details">
+            <span>{index + 1}.</span>
               <Link to={`/profile/${user.user_id}`}>{user.first_name} {user.last_name}</Link>
               <div className="pet">
                 <div className="pet-text">
                   { user.role === 2 ?
-                  <p>Looks after</p>
+                  <p>Hosts</p>
                   :
                   <p>Owns</p>
                   }
@@ -42,6 +41,7 @@ function ProfileList(props) {
                     starCount={5}
                     value={parseInt(user.avg_rating)}
                 />
+                ({user.total_ratings} ratings)
               </div>
             </div>
           </li>

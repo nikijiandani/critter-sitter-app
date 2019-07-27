@@ -26,6 +26,7 @@
   font-weight: bold;
   font-style: italic;
   padding-right: 0.3em;
+  align-content: center;
 } 
 .pet-icon {
   display: flex;
@@ -39,7 +40,6 @@
   align-items: center;
 } 
 .location {
-  font-weight: bold;
   font-size: 1.2em;
 }
 @media (min-width: 576px) {
@@ -79,7 +79,7 @@
   .item {
     width: 100%;
   }
- .pet {
+  .pet {
     display: flex;
     flex-direction: row;
     font-size: 1em;
