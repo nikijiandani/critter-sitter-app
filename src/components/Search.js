@@ -10,7 +10,7 @@ class Search extends Component {
       distance: 100,
       city: "Toronto",
       profiles: [],
-      role: null
+      role: 1
     }
   }
 
@@ -26,7 +26,11 @@ class Search extends Component {
     if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
     }
-    fetch(`http://localhost:8080/api/users?role=${this.state.role}&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
+    let query = "";
+    if(localStorage.getItem('loggedInUsersId')){
+      query = `&dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`
+    }
+    fetch(`http://localhost:8080/api/users?role=${this.state.role}${query}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
@@ -69,7 +73,7 @@ class Search extends Component {
             } 
             <select style={{width: '31%'}} type="text"
                     onChange={this.handleChange} value={this.state.distance}>
-              <option value="100">Any</option>
+              <option value="100">All</option>
               <option value="2">2</option>
               <option value="5">5</option>
               <option value="7">7</option>
