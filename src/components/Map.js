@@ -44,9 +44,9 @@ class SearchMap extends Component {
       // create map and add a pin for each profile
       // GoogleMap passes $hover props to hovered components
       <div className='map'>
-        
+
         <GoogleMapReact
-          bootstrapURLKeys={{ 
+          bootstrapURLKeys={{
             key: GM_API_KEY,
             v: '3.31' }}
             center={
@@ -58,16 +58,18 @@ class SearchMap extends Component {
             }
           zoom={this.props.zoom}
         >
-        
+
         {this.props.profiles.map((mapProfile, index) => {
-          return (
-            <ProfilePins
-              key={index}
-              lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
-              lng={mapProfile.home_long ? mapProfile.home_long : 0}
-              text={index + 1}
-            />
-          )
+          if (!this.props.profilePageExists) {
+            return (
+              <ProfilePins
+                key={index}
+                lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
+                lng={mapProfile.home_long ? mapProfile.home_long : 0}
+                text={index + 1}
+              />
+            )
+          }
          })}
          {circleValue}
 
