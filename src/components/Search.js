@@ -7,7 +7,7 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
-      distance: 'select',
+      distance: 100,
       city: "Toronto",
       profiles: []
     }
@@ -24,8 +24,6 @@ class Search extends Component {
     let distance;
     if (this.state.distance !== 0) {
       distance = this.state.distance * 1000;
-    } else {
-      distance = this.state.distance;
     }
     fetch(`http://localhost:8080/api/users?dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
     .then(results => {
@@ -41,7 +39,7 @@ class Search extends Component {
   componentDidMount() {
     console.log(this.props.match.params.role)
 
-    const role = this.props.match.params.role === "sitter" ?  2 : 1 
+    const role = this.props.match.params.role === "sitter" ?  2 : 1
 
   // "http://localhost:8080/api/users?role=2"    // Fetch sitters 
   // "http://localhost:8080/api/users?role=1"    // Fetch customers
@@ -63,13 +61,13 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             { this.props.match.params.role === "sitter" ?
-            <strong>Show me critter sitters within</strong>
+            <strong>Critter sitters within</strong>
             :
-            <strong>Show me critter owners within</strong>      
+            <strong>Critter owners within</strong>      
             } 
             <select style={{width: '31%'}} type="text"
                     onChange={this.handleChange} value={this.state.distance}>
-              <option value="select">Any Distance</option>
+              <option value="100">Any</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -84,7 +82,7 @@ class Search extends Component {
             <strong>KM</strong>
           </label>
           <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
-                 type="submit" value="Submit" />
+                 type="submit" value="Show me" />
         </form>
         { this.props.match.params.role === "sitter" ?
           <h3>Critter Sitters in {this.state.city}</h3>
