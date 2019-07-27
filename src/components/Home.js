@@ -1,14 +1,9 @@
 import React from 'react';
-import { Component, Button } from 'react';
+import { Component } from 'react';
 import { Link } from "react-router-dom"; 
 import './styles/home.css';
 
-
 class Home extends Component {
-  constructor(){
-    super()
-  }
-
   render() {  
     return (
       <div>
