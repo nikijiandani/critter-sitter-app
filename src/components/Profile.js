@@ -85,21 +85,39 @@ class Profile extends Component {
                   <Link to={`/profile/${this.state.lookup_id}/contact/${this.state.profiles.first_name}`} className="btn btn-info">Contact</Link>           
               </div>
               <div className="profile-info">
-                  <div className="profile-pet-icon">
-                    {this.state.profiles.sitter_pet_types.map((pet) =>
-                    <div key={pet.pet_type_id}>
-                    {pet.icon}
+                  <div className="profile-pet">
+                    <div className="profile-pet-text">
+                      { this.state.profiles.role === 2 ?
+                      <p>Hosts</p>
+                      :
+                      <p>Owns</p>
+                      }
                     </div>
-                    )}
+                    <div className="profile-pet-icon">
+                      {this.state.profiles.sitter_pet_types.map((pet) =>
+                      <div key={pet.pet_type_id}>
+                      {pet.icon}
+                      </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="profile-rating">
+                    <div className="rating-stars">
+                      <StarRatingComponent
+                          name="rate1"
+                          starCount={5}
+                          value={parseInt(this.state.profiles.avg_rating)}
+                      />
+                    </div>
+                    <div className="rating-number">                  
+                      { this.state.profiles.total_ratings !== null ?
+                      <p>({this.state.profiles.total_ratings} ratings)</p>
+                      :
+                      <p>(Not rated yet)</p>
+                      }                
+                    </div>
                   </div>
                   <p>{this.state.profiles.city}, ON, {this.state.profiles.postal_code}</p>
-                  <div className="profile-rating">
-                  <StarRatingComponent
-                      name="rate1"
-                      starCount={5}
-                      value={parseInt(this.state.profiles.avg_rating)}
-                  />
-                  </div>
               </div>
 
             </div>
