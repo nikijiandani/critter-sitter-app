@@ -27,7 +27,7 @@ class Search extends Component {
     } else {
       distance = this.state.distance;
     }
-    fetch(`http://localhost:8080/api/users?dist_from_id=1&dist_metres=${distance}`)
+    fetch(`http://localhost:8080/api/users?dist_from_id=${localStorage.getItem('loggedInUsersId')}&dist_metres=${distance}`)
     .then(results => {
       results.json().then((res) => {
         console.log(res)
