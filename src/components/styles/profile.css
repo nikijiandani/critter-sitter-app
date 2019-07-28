@@ -1,6 +1,7 @@
 .profile-container {
   display: flex;
   flex-direction: column;
+  padding-bottom: 3em;
 }
 .profile-container form {
   width: 100%;
@@ -10,6 +11,9 @@
   flex-direction: column;
   align-items: center;
 }
+.profile-left a {
+  padding: 0.5em 2em;
+}
 .profile-header {
   display: flex;
   flex-direction: column;
@@ -17,17 +21,37 @@
   align-items: center;
   text-align: center;
 }
-.profile-images {
-  display: none;
+.red-indicator {
+  background-color: red;
+  color: white;
+  border-radius: 12px;
+  height: 1.5em;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0em 0.7em 0.2em 0.7em;
+  margin-right: 0.5em;
 }
+.profile-avatar img {
+  width: 10em;
+  height: 10em;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px 0 rgba(0,0,0,0.5);
+}
+/* .profile-images {
+  display: none;
+} */
 .profile-images img {
   width: 20em;
-  height: 20em;
+  height: 15em;
 }
 .profile-info {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
+}
+.profile-bio {
+  padding: 0.8em;
 }
 .profile-name {
   display: flex;
@@ -36,12 +60,16 @@
 }
 .profile-pet {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
+  justify-content: center;  
 }
 .profile-pet-text {
   font-weight: bold;
   font-style: italic;
-  align-content: center;
+}
+.profile-pet-text p {
+  margin-top: 0.8em;
+  margin-right: 0.5em;
 }
 .profile-pet-icon {
   display: flex;
@@ -49,80 +77,106 @@
   font-size: 2.2em;
 }
 .profile-rating {
-  font-size: 1.1em;
+  font-size: 0.9em;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.rating-stars i{
+  font-size: 1.5em;
+}
+.rating-stars label {
+  margin-bottom: 0.2em;
+}
+.rating-number p{
+  margin-bottom: 0.2em;
+  margin-left: 0.2em;
 }
 .profile-review {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
+.profile-container h4 {
+  background-color: black;
+  color: white;
+  padding: 0.5em 0.6em;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
 .reviews {
   padding: 0;
-  margin: 0 0.2em;
 }
 .btn-info {
   color: #FFFFFF;
   background-color: #4ABFBF;
   border-color: #4ABFBF;
 }
-@media (min-width: 768px) {
-  .profile-container {
-    padding-top: 1em;
-    flex-direction: row;
-    margin-bottom: 10em;
-  }
-  .profile-container textarea {
-    width: 61%;
-  }
-  .profile-map {
-    width: 35%;
-    height: 50vh;
-    padding-right: 5em;
-  }
-  .profile-avatar img {
-    width: 10em;
-    height: 10em;
-  }
-  .profile-left{
-    width: 65%;
-    padding-left: 5em;
-    align-items: initial;
-  }
-  .profile-header {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-bottom: 0.5em;
-  }
-  .profile-name {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  .profile-info {
-    align-items: flex-start;
-    padding-left: 1em;
-  }
-  .profile-review {
-    align-items: flex-start;
-  }
+@media (min-width: 425px) {
   .profile-images {
-    width: 28em;
-    display: initial;
+    width: 100%;
+  }
+  .profile-images img {
+    height: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .profile-avatar img {
+    width: 14em;
+    height: 14em;
+  }
+  .profile-left {
+    padding-top: 1.5em;
+  }
+  .profile-bio {
+    width: 50%;
+  }
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 @media (min-width: 992px) {
-  .profile-text {
-    width: 60%;
+  .profile-header {
+    flex-direction: row;
+    align-items: flex-start;
   }
-  .profile-text h3 {
+  .profile-container {
+    flex-direction: row;
+  }
+  .profile-info {
+    align-items: flex-start;
+  }
+  .profile-avatar {
+    padding-left: 1em;
+    padding-top: 1em;
+  }
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em 1em 1em 1em;
+  }
+  .profile-details a {
+    order: 2;
+  }
+  .profile-bio {
+    width: 100%;
+    padding: 0 0 1em 0;
     text-align: left;
-    padding-left: 0.5em;
   }
-  .profile-text a {
-    width: 15em;
+  .profile-map {
+    width: 40%;
   }
-  .profile-review {
-    padding-top: 0.5em;
+  .profile-left {
+    width: 60%;
+    padding-top: 0;
+  }
+}
+@media (min-width: 1440px){
+  .profile-header {
+    align-self: flex-start;
   }
 }

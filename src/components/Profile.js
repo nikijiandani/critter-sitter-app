@@ -79,67 +79,78 @@ class Profile extends Component {
                 <img src={this.state.profiles.avatar} alt="avatar" />
             </div>
 
-            <div className="profile-text">
-              <div className="profile-name">
-                  <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
-                  <Link to={`/profile/${this.state.lookup_id}/contact/${this.state.profiles.first_name}`} className="btn btn-info">Contact</Link>           
-              </div>
-              <div className="profile-info">
-                  <div className="profile-pet">
-                    <div className="profile-pet-text">
-                      { this.state.profiles.role === 2 ?
-                      <p>Hosts</p>
-                      :
-                      <p>Owns</p>
-                      }
+            <div className="profile-details">
+              <div className="profile-text">
+                <div className="profile-info">
+                    <div className="profile-name">
+                        <h3>{this.state.profiles.first_name} {this.state.profiles.last_name}</h3>
+
                     </div>
-                    <div className="profile-pet-icon">
-                      {this.state.profiles.sitter_pet_types.map((pet) =>
-                      <div key={pet.pet_type_id}>
-                      {pet.icon}
-                      </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="profile-rating">
-                    <div className="rating-stars">
+                    <div className="profile-rating">
+                      {this.state.profiles.role === 2 ? <span className="red-indicator">Sitter</span> : "" }
                       <StarRatingComponent
+                          className="rating-stars"
                           name="rate1"
                           starCount={5}
                           value={parseInt(this.state.profiles.avg_rating)}
                       />
+                      <div className="rating-number">                  
+                        { this.state.profiles.total_ratings !== null ?
+                        <p>({this.state.profiles.total_ratings} ratings)</p>
+                        :
+                        <p>(Not rated yet)</p>
+                        }                
+                      </div>
                     </div>
-                    <div className="rating-number">                  
-                      { this.state.profiles.total_ratings !== null ?
-                      <p>({this.state.profiles.total_ratings} ratings)</p>
-                      :
-                      <p>(Not rated yet)</p>
-                      }                
+                    <div className="profile-pet">
+                      <div className="profile-pet-text">
+                        { this.state.profiles.role === 2 ?
+                        <p>Hosts</p>
+                        :
+                        <p>Owns</p>
+                        }
+                      </div>
+                      <div className="profile-pet-icon">
+                        {this.state.profiles.sitter_pet_types.map((pet) =>
+                        <div key={pet.pet_type_id}>
+                        {pet.icon}
+                        </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <p>{this.state.profiles.city}, ON, {this.state.profiles.postal_code}</p>
-              </div>
+                    <p>{this.state.profiles.city}, ON, {this.state.profiles.postal_code}</p>
+                </div>
 
+              </div>
+            
+            
+              <Link 
+                to={`/profile/${this.state.lookup_id}/contact/${this.state.profiles.first_name}`} 
+                className="btn btn-info">Contact {this.state.profiles.first_name}
+              </Link>
+
+
+              <div className="profile-bio">
+                <strong>{this.state.profiles.first_name} says:</strong> <i>{this.state.profiles.bio}</i>
+              </div>
             </div>
           </div>
-
-          <div className="profile-bio">
-            <strong>{this.state.profiles.first_name} says:</strong> <i>{this.state.profiles.bio}</i>
+          <div className="profile-images">
+            <h4>Pictures</h4>
+            <Carousel>
+              {this.state.profiles.images.map((image, index) => {
+                return (
+                  <Carousel.Item key={index}>
+                    <img
+                      className="d-block w-100"
+                      src={image.image}
+                      alt="sliding-images-of-user-or-their-pet"
+                    />
+                  </Carousel.Item>
+                )
+              })}
+            </Carousel>
           </div>
-
-          <Carousel className="profile-images">
-            {this.state.profiles.images.map((image, index) => {
-              return (
-                <Carousel.Item key={index}>
-                  <img
-                    className="d-block w-100"
-                    src={image.image}
-                    alt="sliding-images-of-user-or-their-pet"
-                  />
-                </Carousel.Item>
-              )
-            })}
-          </Carousel>
           
           {localStorage.getItem('loggedInUsersId') ? (
             <Form className="review-form" onSubmit={this.handleSubmit}>

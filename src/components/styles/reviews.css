@@ -2,6 +2,29 @@
   font-weight: 700;
   margin-bottom: 0;
 }
+.review {
+  padding: 0.2em 0.5em;
+  border-bottom: 1px solid #9B9B9B;
+}
+.review-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-info p {
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
+}
 .text-muted {
   font-style: italic;
+}
+.review-avatar {
+  width: 2em;
+  height: 2em;
+  border: 2px solid red;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.review-author {
+  padding-bottom: 0.6em;
 }
