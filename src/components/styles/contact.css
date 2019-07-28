@@ -1,5 +1,6 @@
 .contact {
   padding: 0.2em;
+  width: 100%;
 }
 .form-label {
   font-size: 1.5em;
@@ -11,17 +12,30 @@
 textarea.form-control {
   height: 10em;
 }
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.chat-box .title {
+  font-size: 2em;
+}
+.msg-container {
+  display: flex;
+  align-items: flex-start;
+}
+.conversations {
+  width: 50%;
+}
 
 @media (min-width: 768px){
   .contact {
-    width: 80%;
     margin: 0 auto;
   }
 }
 
 @media (min-width: 1024px){
   .contact {
-    width: 50%;
     margin: 0 auto;
   }
 }
