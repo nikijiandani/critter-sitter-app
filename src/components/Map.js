@@ -61,14 +61,16 @@ class SearchMap extends Component {
 
         {this.props.profiles.map((mapProfile, index) => {
           if (!this.props.profilePageExists) {
-            return (
-              <ProfilePins
-                key={index}
-                lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
-                lng={mapProfile.home_long ? mapProfile.home_long : 0}
-                text={index + 1}
-              />
-            )
+            if(mapProfile.user_id.toString() !== localStorage.getItem('loggedInUsersId')) {
+              return (
+                <ProfilePins
+                  key={index}
+                  lat={mapProfile.home_lat ? mapProfile.home_lat : 0}
+                  lng={mapProfile.home_long ? mapProfile.home_long : 0}
+                  text={(index + 1)}
+                />
+              )
+            }
           }
          })}
          {circleValue}

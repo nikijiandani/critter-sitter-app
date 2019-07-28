@@ -28,12 +28,20 @@
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    font-weight: bold;
 }
 .profile-name {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.profile-pet {
+  display: flex;
+  flex-direction: row;  
+}
+.profile-pet-text {
+  font-weight: bold;
+  font-style: italic;
+  align-content: center;
 }
 .profile-pet-icon {
   display: flex;
@@ -41,7 +49,9 @@
   font-size: 2.2em;
 }
 .profile-rating {
-  font-size: 1.2em;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: row;
 }
 .profile-review {
   display: flex;

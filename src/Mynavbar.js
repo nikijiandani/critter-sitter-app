@@ -28,7 +28,7 @@ class Mynavbar extends Component{
                 <Navbar.Text>
                   Logged in as:{localStorage.getItem('loggedInUsersEmail')}
                 </Navbar.Text>
-                <Button onClick={this.props.handleLogout}>Logout</Button>
+                <Link to="#" onClick={this.props.handleLogout}>Logout</Link>
                 <Link className="message-icon" to="/messages">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </Link>

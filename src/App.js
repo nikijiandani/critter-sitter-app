@@ -23,10 +23,12 @@ class App extends Component {
   handleLogout = (e) => {
     e.preventDefault();
     console.log(e.target)
+
     localStorage.clear()
     this.setState({
       currentLoggedInUser: null
     })
+    window.location.href = "http://localhost:3000/";
   }
 
   handleLogin = (e) => {
@@ -34,7 +36,7 @@ class App extends Component {
     localStorage.setItem('loggedInUsersEmail', e.target.elements[0].value)
     localStorage.setItem('loggedInUsersId', e.target.elements[1].value)
     this.setState({
-      currentLoggedInUser: { 
+      currentLoggedInUser: {
         email: e.target.elements[0].value,
         id: e.target.elements[1].value
       }
@@ -52,13 +54,13 @@ class App extends Component {
           <Route path="/profile/:id/contact/:name" component={Contact} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" render={(routeProps) => (
-            <Login 
-            handleLogin = {this.handleLogin} 
+            <Login
+            handleLogin = {this.handleLogin}
             currentUser = {this.state.currentLoggedInUser}
             />
           )}/>
           <Route path="/messages" render={(routeProps) => (
-            <Messages 
+            <Messages
             currentUser = {this.state.currentLoggedInUser}
             />
           )} />

@@ -70,8 +70,7 @@ class Search extends Component {
               :
               <strong>Critter owners within</strong>
               }
-              <select style={{width: '23%'}} type="text"
-                      onChange={this.handleChange} value={this.state.distance}>
+              <select type="text" onChange={this.handleChange} value={this.state.distance}>
                 <option value="100">All</option>
                 <option value="2">2</option>
                 <option value="5">5</option>
@@ -80,17 +79,16 @@ class Search extends Component {
               </select>
               <strong>KM</strong>
             </label>
-            <input style={{ backgroundColor: '#5bc0de', borderRadius: '10px' }}
-                  type="submit" value="Show me" />
+            <input type="submit" value="Show me" />
           </form>
           :
           " "
         }
         <div className="user-title">
           { this.props.match.params.role === "sitter" ?
-            <h3>Sitters</h3>
+            <h3>Critter Sitters</h3>
             :
-            <h3>Owners</h3>
+            <h3>Critter Owners</h3>
           }
         </div>
         <div className="search-container">
