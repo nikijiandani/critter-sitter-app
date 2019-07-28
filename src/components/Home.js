@@ -7,6 +7,22 @@ class Home extends Component {
   render() {  
     return (
       <div>
+
+          {/* <Carousel className="home-background-images">
+            {this.state.profiles.images.map((image, index) => {
+              return (
+                <Carousel.Item key={index}>
+                  <img
+                    className="d-block w-100"
+                    src={image.image}
+                    alt="sliding-images-of-cute-pets"
+                  />
+                </Carousel.Item>
+              )
+            })}
+          </Carousel> */}
+
+
         <div className="text-section">
           <p>Search thousands of pet sitters near you, read reviews and more!!</p>
         </div>

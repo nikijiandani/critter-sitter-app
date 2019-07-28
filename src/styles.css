@@ -12,5 +12,10 @@
 }
 
 .nav-components a {
+  padding-left: 0.8em;
   color: #FFFFFF;
+}
+
+.nav-components a svg {
+  padding-right: 0.2em;
 }
