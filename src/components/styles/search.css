@@ -3,6 +3,10 @@
   background-color: black;
   color: #DDA448;
 }
+.user-title h3 {
+  margin-bottom: 0;
+  padding-left: 0.5em;
+}
 .search-container {
   display: flex;
   flex-direction: column;
@@ -47,9 +51,6 @@
   }
   .search select {
     width : 18%;
-  }  
-  .user-title {
-    text-align: center;
   }
 }
 @media (min-width: 768px) {
@@ -81,9 +82,7 @@
   .user-title {
     font-size: 2em;
     width: 80%;
-    text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
   }
   .search form {
