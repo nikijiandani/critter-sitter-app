@@ -8,24 +8,20 @@
   flex-direction: column;
 }
 .search form {
-  /* padding: 0.2em; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.search input {
-  background-color: #5bc0de;
-  border-radius: 10px;
-  width: 100%;
-}
 .form-group {
-  width: 100%;
+  width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 0;
-  font-size: 1.4em;
-  padding: 0.5em 0;
+  font-size: 1.1em;
+  margin: 0.5em 1em;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.43);
 }
 .form-group label {
   margin-bottom: 0;
@@ -33,6 +29,10 @@
 .search select {
   width : 30%;
   margin-left: 0.2em;
+  background-color: #4E73B9;
+  color: white;
+  border: 3px solid #4E73B9;
+  border-radius: 0 3px 3px 0;
 }
 @media (min-width: 576px) {
   .search {

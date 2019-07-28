@@ -62,17 +62,17 @@ class Search extends Component {
             <div className="form-group">
               <label>
                 { this.props.match.params.role === "sitter" ?
-                <strong>Sitters within</strong>
+                <span>Show me sitters within</span>
                 :
-                <strong>Critter owners within</strong>
+                <span>Show me owners within</span>
                 }
               </label>
               <select type="text" onChange={this.handleChange}>
-                <option value="100">100 KM</option>
-                <option value="2">2 KM</option>
-                <option value="5">5 KM</option>
-                <option value="7">7 KM</option>
-                <option value="10">10 KM</option>
+                <option value="100">100 km</option>
+                <option value="2">2 km</option>
+                <option value="5">5 km</option>
+                <option value="7">7 km</option>
+                <option value="10">10 km</option>
               </select>
             </div>
           </form>
