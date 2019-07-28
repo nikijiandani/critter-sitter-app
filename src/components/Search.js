@@ -70,15 +70,15 @@ class Search extends Component {
               :
               <strong>Critter owners within</strong>
               }
-              <select type="text" onChange={this.handleChange} value={this.state.distance}>
-                <option value="100">All</option>
-                <option value="2">2</option>
-                <option value="5">5</option>
-                <option value="7">7</option>
-                <option value="10">10</option>
-              </select>
-              <strong>KM</strong>
             </label>
+            <select type="text" onChange={this.handleChange} value={this.state.distance}>
+              <option value="100">All</option>
+              <option value="2">2</option>
+              <option value="5">5</option>
+              <option value="7">7</option>
+              <option value="10">10</option>
+            </select>
+            <strong>KM</strong>
             <input type="submit" value="Show me" />
           </form>
           :
