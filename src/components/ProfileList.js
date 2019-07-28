@@ -32,16 +32,24 @@ function ProfileList(props) {
                     )}
                 </div>
               </div>
+              <div className="rating">
+                <div className="rating-stars">
+                  <StarRatingComponent 
+                      name="rate1" 
+                      starCount={5}
+                      value={parseInt(user.avg_rating)}
+                  />
+                </div>
+                <div className="rating-number">
+                  { user.total_ratings !== null ?
+                  <p>({user.total_ratings} ratings)</p>
+                  :
+                  <p>(Not rated yet)</p>
+                  }                
+                </div>
+              </div>
               <div className="location">
                 {user.city}, ON, {user.postal_code}
-              </div>
-              <div className="rating">
-                <StarRatingComponent 
-                    name="rate1" 
-                    starCount={5}
-                    value={parseInt(user.avg_rating)}
-                />
-                ({user.total_ratings} ratings)
               </div>
             </div>
           </li>
