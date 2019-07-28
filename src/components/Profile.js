@@ -147,7 +147,7 @@ class Profile extends Component {
                 <Form.Label>Add a Review:</Form.Label>
                 <Form.Control as="textarea" />
               </Form.Group>
-              <Button variant="primary" type="submit" >Submit</Button>
+              <Button variant="info" type="submit" >Submit</Button>
             </Form>
           ) : (
             ""

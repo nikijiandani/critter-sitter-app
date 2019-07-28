@@ -2,15 +2,16 @@
     padding: 0.2em;
 }
 
-.myBtn {
-    background-color: #5bc0de;
-    border-color: #5bc0de;
-}
-
 .login-form h3 {
     padding: 0;
     font-size: 3em;
 }
+
+.myBtn {
+    color: #FFFFFF;
+    background-color: #4ABFBF;
+    border-color: #4ABFBF;    
+  }
 
 @media (min-width: 768px){
     .login-form {

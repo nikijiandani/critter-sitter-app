@@ -39,7 +39,7 @@ class Messages extends Component {
               {/* <Form.Label>Send message to {this.props.match.params.name}:</Form.Label> */}
               <Form.Control as="textarea" placeholder="Enter message" />
             </Form.Group>
-            <Button variant="primary" type="submit" className="myBtn" block>
+            <Button variant="info" type="submit" className="myBtn" block>
               Send
             </Button>
           </Form>
