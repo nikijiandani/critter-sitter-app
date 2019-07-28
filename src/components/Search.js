@@ -15,16 +15,11 @@ class Search extends Component {
   }
 
   handleChange = event => {
-    this.setState({
-      distance: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
     event.preventDefault();
+    console.log(event.target.value)
     let distance;
-    if (this.state.distance !== 0) {
-      distance = this.state.distance * 1000;
+    if (event.target.value !== 0) {
+      distance = event.target.value * 1000;
     }
     let query = "";
     if(localStorage.getItem('loggedInUsersId')){
@@ -63,7 +58,7 @@ class Search extends Component {
     return (
       <div className="search">
         { localStorage.getItem('loggedInUsersId') !== null ?
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div className="form-group">
               <label>
                 { this.props.match.params.role === "sitter" ?
@@ -72,7 +67,7 @@ class Search extends Component {
                 <strong>Critter owners within</strong>
                 }
               </label>
-              <select type="text" onChange={this.handleChange} value={this.state.distance}>
+              <select type="text" onChange={this.handleChange}>
                 <option value="100">100 KM</option>
                 <option value="2">2 KM</option>
                 <option value="5">5 KM</option>
@@ -80,7 +75,6 @@ class Search extends Component {
                 <option value="10">10 KM</option>
               </select>
             </div>
-            <input type="submit" value="Show me" />
           </form>
           :
           " "
