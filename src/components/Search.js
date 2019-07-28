@@ -15,16 +15,11 @@ class Search extends Component {
   }
 
   handleChange = event => {
-    this.setState({
-      distance: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
     event.preventDefault();
+    console.log(event.target.value)
     let distance;
-    if (this.state.distance !== 0) {
-      distance = this.state.distance * 1000;
+    if (event.target.value !== 0) {
+      distance = event.target.value * 1000;
     }
     let query = "";
     if(localStorage.getItem('loggedInUsersId')){
@@ -62,34 +57,36 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        { localStorage.getItem('loggedInUsersId') !== null ?
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              { this.props.match.params.role === "sitter" ?
-              <strong>Critter sitters within</strong>
-              :
-              <strong>Critter owners within</strong>
-              }
-              <select type="text" onChange={this.handleChange} value={this.state.distance}>
-                <option value="100">All</option>
-                <option value="2">2</option>
-                <option value="5">5</option>
-                <option value="7">7</option>
-                <option value="10">10</option>
-              </select>
-              <strong>KM</strong>
-            </label>
-            <input type="submit" value="Show me" />
-          </form>
-          :
-          " "
-        }
-        <div className="user-title">
-          { this.props.match.params.role === "sitter" ?
-            <h3>Critter Sitters</h3>
+        <div className="head">
+          { localStorage.getItem('loggedInUsersId') !== null ?
+            <form>
+              <div className="form-group">
+                <label>
+                  { this.props.match.params.role === "sitter" ?
+                  <span>Show me sitters within</span>
+                  :
+                  <span>Show me owners within</span>
+                  }
+                </label>
+                <select type="text" onChange={this.handleChange}>
+                  <option value="100">100 km</option>
+                  <option value="2">2 km</option>
+                  <option value="5">5 km</option>
+                  <option value="7">7 km</option>
+                  <option value="10">10 km</option>
+                </select>
+              </div>
+            </form>
             :
-            <h3>Critter Owners</h3>
+            " "
           }
+          <div className="user-title">
+            { this.props.match.params.role === "sitter" ?
+              <h3>Sitters</h3>
+              :
+              <h3>Critter Owners</h3>
+            }
+          </div>
         </div>
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component" zoom={11}/>

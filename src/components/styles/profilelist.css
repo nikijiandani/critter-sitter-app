@@ -1,5 +1,5 @@
 .profilelist {
-  padding: 0.2em;
+  padding: 0;
   height: 85vh;
   overflow-y: scroll;
   box-shadow: 1px 3px #e6e6e6;
@@ -7,17 +7,28 @@
 }
 .item {
   list-style-type: none;
-  border: 1px solid black;
+  border-bottom: 1px solid #9B9B9B;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
   border-radius: 5px;
   display: flex;
-  margin-bottom: 0.1em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em 0 0.5em;
 }
 .item-details {
-  padding: 0.2em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+}
+.item-info {
+  padding-left: 1em;
 }
 .avatar {
   width: 5em;
   height: 5em;
+  border: 2px solid red;
+  border-radius: 50%;
 }
 .item .rating {
   font-size: 1em;
@@ -38,7 +49,7 @@
 }
 .pet {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 } 
 .location {
@@ -47,6 +58,7 @@
 @media (min-width: 576px) {
   .item {
     border-radius: 0;
+    padding-left: 1em;
   }
   .item span {
     font-size: 1.1em;
@@ -57,14 +69,14 @@
     font-weight: 700;
   }
   .avatar {
-    width: 10em;
-    height: 10em;
+    width: 5em;
+    height: 5em;
   }
-  .pet {
+  /* .pet {
     display: flex;
     flex-direction: row;
     align-items: center;
-  }   
+  }    */
 }
 @media (min-width: 992px) {
   .item span {
@@ -76,15 +88,15 @@
     font-weight: 700;
   }
   .profilelist {
-    width: 60%;
+    width: 80%;
   }
   .item {
     width: 100%;
   }
-  .pet {
+  /* .pet {
     display: flex;
     flex-direction: row;
     font-size: 1em;
     align-items: center;
-  } 
+  }  */
 }
