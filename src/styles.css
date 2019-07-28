@@ -3,9 +3,14 @@
 }
 
 .nav-color {
-  background-color: aquamarine
+  background-color: #4ABFBF;
 }
 
-.message-icon:hover {
-  color: red;
+.nav-components {
+  font-size: 1.3em;
+  color: #FFFFFF;
+}
+
+.nav-components a {
+  color: #FFFFFF;
 }

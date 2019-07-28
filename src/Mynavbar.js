@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import logo from './logo.svg';
-import {Navbar, Nav, Button} from 'react-bootstrap';
+import logo from './logo.png';
+import {Navbar, Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faSignOutAlt, faSignInAlt, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 class Mynavbar extends Component{
@@ -13,29 +13,32 @@ class Mynavbar extends Component{
         <Link to="/">
           <img
           src={logo}
-          width="30"
-          height="30"
+          width="130"
+          height="50"
           className="d-inline-block align-top"
           alt="logo"
           />
-          {' critterSitter'}
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav>
+          <Nav className="nav-components">
             { localStorage.getItem('loggedInUsersEmail') ? (
               <>
-                <Navbar.Text>
-                  Logged in as:{localStorage.getItem('loggedInUsersEmail')}
-                </Navbar.Text>
-                <Link to="#" onClick={this.props.handleLogout}>Logout</Link>
-                <Link className="message-icon" to="/messages">
-                  <FontAwesomeIcon icon={faEnvelope} />
+                Logged in as: {localStorage.getItem('loggedInUsersEmail')}
+                <Link to="/" onClick={this.props.handleLogout}>
+                  <FontAwesomeIcon icon={faSignOutAlt} />Logout
+                </Link>
+                <Link to="/messages">
+                  <FontAwesomeIcon icon={faEnvelope} />Messages
                 </Link>
               </> ) : (
               <>
-                <Link to="/signup">Signup</Link>
-                <Link to="/login">Login</Link>
+                <Link to="/signup">
+                  <FontAwesomeIcon icon={faUserPlus} />Signup
+                </Link>
+                <Link to="/login">
+                  <FontAwesomeIcon icon={faSignInAlt} />Login
+                </Link>
               </>
               )
             }

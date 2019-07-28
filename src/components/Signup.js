@@ -5,10 +5,6 @@ import './styles/signup.css';
 
 
 class Signup extends Component {
-  constructor() {
-    super()   
-  }
-
   render() {
     return (     
       <div>
