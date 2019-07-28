@@ -57,34 +57,36 @@ class Search extends Component {
   render() {
     return (
       <div className="search">
-        { localStorage.getItem('loggedInUsersId') !== null ?
-          <form>
-            <div className="form-group">
-              <label>
-                { this.props.match.params.role === "sitter" ?
-                <span>Show me sitters within</span>
-                :
-                <span>Show me owners within</span>
-                }
-              </label>
-              <select type="text" onChange={this.handleChange}>
-                <option value="100">100 km</option>
-                <option value="2">2 km</option>
-                <option value="5">5 km</option>
-                <option value="7">7 km</option>
-                <option value="10">10 km</option>
-              </select>
-            </div>
-          </form>
-          :
-          " "
-        }
-        <div className="user-title">
-          { this.props.match.params.role === "sitter" ?
-            <h3>Critter Sitters</h3>
+        <div className="head">
+          { localStorage.getItem('loggedInUsersId') !== null ?
+            <form>
+              <div className="form-group">
+                <label>
+                  { this.props.match.params.role === "sitter" ?
+                  <span>Show me sitters within</span>
+                  :
+                  <span>Show me owners within</span>
+                  }
+                </label>
+                <select type="text" onChange={this.handleChange}>
+                  <option value="100">100 km</option>
+                  <option value="2">2 km</option>
+                  <option value="5">5 km</option>
+                  <option value="7">7 km</option>
+                  <option value="10">10 km</option>
+                </select>
+              </div>
+            </form>
             :
-            <h3>Critter Owners</h3>
+            " "
           }
+          <div className="user-title">
+            { this.props.match.params.role === "sitter" ?
+              <h3>Sitters</h3>
+              :
+              <h3>Critter Owners</h3>
+            }
+          </div>
         </div>
         <div className="search-container">
           <Map profiles={this.state.profiles} className="map-component" zoom={11}/>
