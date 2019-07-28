@@ -64,21 +64,22 @@ class Search extends Component {
       <div className="search">
         { localStorage.getItem('loggedInUsersId') !== null ?
           <form onSubmit={this.handleSubmit}>
-            <label>
-              { this.props.match.params.role === "sitter" ?
-              <strong>Critter sitters within</strong>
-              :
-              <strong>Critter owners within</strong>
-              }
-            </label>
-            <select type="text" onChange={this.handleChange} value={this.state.distance}>
-              <option value="100">All</option>
-              <option value="2">2</option>
-              <option value="5">5</option>
-              <option value="7">7</option>
-              <option value="10">10</option>
-            </select>
-            <strong>KM</strong>
+            <div className="form-group">
+              <label>
+                { this.props.match.params.role === "sitter" ?
+                <strong>Sitters within</strong>
+                :
+                <strong>Critter owners within</strong>
+                }
+              </label>
+              <select type="text" onChange={this.handleChange} value={this.state.distance}>
+                <option value="100">100 KM</option>
+                <option value="2">2 KM</option>
+                <option value="5">5 KM</option>
+                <option value="7">7 KM</option>
+                <option value="10">10 KM</option>
+              </select>
+            </div>
             <input type="submit" value="Show me" />
           </form>
           :
