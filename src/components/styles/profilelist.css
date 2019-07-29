@@ -12,9 +12,12 @@
   border-left: 1px solid black;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   padding: 0 1em 0 0.5em;
+}
+.item .rating-stars {
+  font-size: 0.8em;
 }
 .item-details {
   padding: 0.5em;
@@ -23,6 +26,8 @@
 }
 .item-info {
   padding-left: 1em;
+  display: flex;
+  flex-direction: column;
 }
 .avatar {
   width: 5em;
@@ -31,9 +36,12 @@
   border-radius: 50%;
 }
 .item .rating {
-  font-size: 1em;
   display: flex;
   flex-direction: row;
+  height: 1.7em;
+}
+.rating-number p {
+  padding-top: 0.1em;
 }
 .pet-text {
   font-weight: bold;
@@ -45,13 +53,16 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .pet {
   display: flex;
-  flex-direction: column;
   align-items: center;
-} 
+  height: 2em;
+}
+.pet p {
+  margin-bottom: 0;
+}
 .location {
   font-size: 1em;
 }
@@ -72,11 +83,28 @@
     width: 5em;
     height: 5em;
   }
-  /* .pet {
-    display: flex;
+}
+@media (min-width:768px){
+  .item-info {
     flex-direction: row;
     align-items: center;
-  }    */
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 0.7em;
+  }
+  .pet {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 40%;
+  }
+  .pet-icon div {
+    margin-right: 0.2em;
+    font-size: 1.2em;
+  }
+  .item {
+    padding: 0;
+  }
 }
 @media (min-width: 992px) {
   .item span {
@@ -84,19 +112,16 @@
     font-weight: 500;
   }
   .item a {
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-weight: 700;
   }
   .profilelist {
-    width: 80%;
+    width: 100%;
   }
   .item {
     width: 100%;
   }
-  /* .pet {
-    display: flex;
-    flex-direction: row;
-    font-size: 1em;
-    align-items: center;
-  }  */
+  .pet {
+    width: 45%;
+  } 
 }
