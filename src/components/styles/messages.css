@@ -2,6 +2,14 @@
     padding: 0.2em;
 }
 
+.message-container h5 {
+    padding: 0.2em;
+}
+
+.message-container p {
+    padding: 0.2em;
+}
+
 .message-block {
     padding-top: 0.3em;
 }

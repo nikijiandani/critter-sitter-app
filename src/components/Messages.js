@@ -34,15 +34,6 @@ class Messages extends Component {
           <ul className="message-list">
             {messages}
           </ul>
-          <Form className="contact" onSubmit={this.props.onSubmit}>
-            <Form.Group controlId="formBasicMessage">
-              {/* <Form.Label>Send message to {this.props.match.params.name}:</Form.Label> */}
-              <Form.Control as="textarea" placeholder="Enter message" />
-            </Form.Group>
-            <Button variant="info" type="submit" className="myBtn" block>
-              Send
-            </Button>
-          </Form>
         </div>
       </div>
     )
