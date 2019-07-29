@@ -1,22 +1,24 @@
-.contact {
+.msg-block .contact {
   padding: 0.2em;
   width: 100%;
-}
-.sendBtn {
-  width: 20%;
-  color: #FFFFFF;
-  background-color: #4ABFBF;
-  border-color: #4ABFBF;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 textarea.form-control {
   height: 5em;
+}
+.contact .form-group {
+  margin-bottom: 0.2em;
 }
 .chat-box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0.5em;
+  padding: 0.2em;
   border-bottom: 2px solid black;
+  padding-bottom: 0;
 }
 .chat-header {
   display: flex;
@@ -56,13 +58,39 @@ textarea.form-control {
     flex-direction: row;
   }
   .msg-block {
-    width: 90%;
     border-left: 2px solid black;
+  }
+  .chat-header .title{
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  .chat-header .chat-avatar {
+    width: 4em;
+    height: 4em;
+  }
+  .msg-heading {
+    width: 40%;
+  }
+  .msg-block .contact {
+    padding: 0.5em;
+    padding-bottom: 1em;
+  }
+  .chat-box {
+    padding: 0.5em;
+    padding-bottom: 0;
+    height: 73vh;
+    overflow-y: scroll;
+  }
+  .contact button {
+    width: 25%;
   }
 }
 
 @media (min-width: 1024px){
-  .contact {
-    margin: 0 auto;
+  .msg-block {
+    width: 100%;
+  }
+  .contact button {
+    width: 20%;
   }
 }

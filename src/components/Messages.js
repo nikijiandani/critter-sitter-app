@@ -11,31 +11,33 @@ class Messages extends Component {
     const messages = this.props.msgs.map((msg, index) => {
       if(msg.other_user_id === this.props.currentProfile){
         if(msg.msg_dir === 'fromuser'){
-          return (<span className="message-item-fromuser" key={index}>
+          return (<li className="message message-item-fromuser" key={index}>
             <h5>Me:</h5>
             <p>{msg.content}</p>
-            <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
-          </span>)
+            <p className="date-text">{new Date(msg.created_at).toLocaleString(
+              'en-US', 
+              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+            )}</p>
+          </li>)
         }
         return (
-          <span className="message-item-touser" key={index}>
+          <li className="message message-item-touser" key={index}>
             <h5>{msg.first_name} {msg.last_name}:</h5>
             <p>{msg.content}</p>
-            <p className="text-muted">{new Date(msg.created_at).toLocaleString()}</p>
-          </span>
+            <p className="date-text">{new Date(msg.created_at).toLocaleString(
+              'en-US', 
+              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+            )}</p>
+          </li>
         )
       }
       return (<div key={index}></div>)
     })
 
     return (
-      <div className="message-container">
-        <div className="message-block">
-          <ul className="message-list">
-            {messages}
-          </ul>
-        </div>
-      </div>
+      <ul className="message-list">
+        {messages}
+      </ul>
     )
   }
 }

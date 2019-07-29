@@ -107,7 +107,7 @@ class Contact extends Component {
               <Form.Group controlId="formBasicMessage">
                 <Form.Control as="textarea" placeholder="Enter message" />
               </Form.Group>
-              <Button variant="info" type="submit" className="sendBtn" block>
+              <Button variant="info" type="submit" block>
                 Send
               </Button>
           </Form>
