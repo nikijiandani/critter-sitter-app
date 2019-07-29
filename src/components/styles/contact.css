@@ -2,36 +2,62 @@
   padding: 0.2em;
   width: 100%;
 }
-.form-label {
-  font-size: 1.5em;
-}
-.myBtn {
+.sendBtn {
+  width: 20%;
   color: #FFFFFF;
   background-color: #4ABFBF;
-  border-color: #4ABFBF;    
+  border-color: #4ABFBF;
 }
 textarea.form-control {
-  height: 10em;
+  height: 5em;
 }
 .chat-box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 0.5em;
+  border-bottom: 2px solid black;
 }
-.chat-box .title {
-  font-size: 2em;
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0.4em;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+.chat-header .title {
+  font-size: 1.5em;
+  padding: 0.5em;
+}
+.chat-avatar {
+  width: 5em;
+  height: 5em;
+  border: 2px solid red;
+  border-radius: 50%;
 }
 .msg-container {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
 }
-.conversations {
-  width: 50%;
+.msg-title {
+  padding: 0.2em 0.2em;
+  background-color: black;
+  color: #FFFFFF;  
+}
+.msg-title h4 {
+  margin-bottom: 0;
+  padding-left: 0.5em;  
 }
 
 @media (min-width: 768px){
-  .contact {
-    margin: 0 auto;
+  .msg-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .msg-block {
+    width: 90%;
+    border-left: 2px solid black;
   }
 }
 

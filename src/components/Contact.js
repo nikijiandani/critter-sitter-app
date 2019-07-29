@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
-import './styles/contact.css'
-import Messages from './Messages'
+import './styles/contact.css';
+import Messages from './Messages';
+import {Form, Button} from 'react-bootstrap';
 
 class Contact extends Component {
 
@@ -85,20 +85,33 @@ class Contact extends Component {
   render(){
     return (
       <div className="msg-container">
-        <div className="conversations">
-          <h4>Messages</h4>
-          <div className="conversation-card">
-            
+        <div className="msg-heading">
+          <div className="msg-title">
+            <h4>Messages</h4>
+          </div>
+          <div className="chat-header">
+            <img src={this.state.profiles.avatar} alt="avatar" className="chat-avatar" /> 
+            <p className="title">
+              {this.state.profiles.first_name} {this.state.profiles.last_name}
+            </p> 
           </div>
         </div>
-        <div className="chat-box">
-          <p className="title">Conversation with {this.state.profiles.first_name}</p>
-          <Messages 
-          msgs={this.state.messages} 
-          currentProfile={this.state.profiles.user_id}
-          onSubmit={this.handleSubmit} 
-          />
-        </div>
+        <div className="msg-block">
+          <div className="chat-box">          
+            <Messages 
+            msgs={this.state.messages} 
+            currentProfile={this.state.profiles.user_id}
+            />
+          </div>
+          <Form className="contact" onSubmit={this.handleSubmit}>
+              <Form.Group controlId="formBasicMessage">
+                <Form.Control as="textarea" placeholder="Enter message" />
+              </Form.Group>
+              <Button variant="info" type="submit" className="sendBtn" block>
+                Send
+              </Button>
+          </Form>
+        </div>        
       </div>
     )
   }
