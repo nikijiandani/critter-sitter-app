@@ -87,7 +87,7 @@ class Profile extends Component {
 
                     </div>
                     <div className="profile-rating">
-                      {this.state.profiles.role === 2 ? <span className="red-indicator">Sitter</span> : "" }
+                      {this.state.profiles.role === 2 ? <span className="sitter-badge">Sitter</span> : "" }
                       <StarRatingComponent
                           className="rating-stars"
                           name="rate1"
@@ -145,7 +145,7 @@ class Profile extends Component {
             <Form className="review-form" onSubmit={this.handleSubmit}>
               <Form.Group>
                 <Form.Label>Add a Review:</Form.Label>
-                <Form.Control as="textarea" />
+                <Form.Control as="textarea" placeholder="Write new review here..."/>
               </Form.Group>
               <Button variant="info" type="submit" >Submit</Button>
             </Form>
