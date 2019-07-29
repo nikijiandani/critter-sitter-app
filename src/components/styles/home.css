@@ -7,7 +7,7 @@
   color: black;
 }
 
-p {
+.text-section p {
   z-index: 9999;
   width: 60%;
   margin: 0 auto;
