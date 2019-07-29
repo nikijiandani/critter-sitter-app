@@ -17,6 +17,7 @@ class Profile extends Component {
         reviews: [],
         lookup_id: 0
       },
+      newRating: 0
     }
   }
 
@@ -40,17 +41,23 @@ class Profile extends Component {
 
   };
 
+  onStarClick = (nextValue) => {
+    this.setState({
+      newRating: nextValue
+    })
+  }
+
   handleSubmit = (e) => {
 
     let newReview = {
       from_id: localStorage.getItem('loggedInUsersId'),
       to_id: this.state.lookup_id,
-      rating: 5, //HARDCODED
-      content: e.target.elements[0].value
+      rating: this.state.newRating,
+      content: e.target.elements[5].value
     };
 
     e.preventDefault();
-    e.target.elements[0].value = ""
+    e.target.elements[5].value = ""
     fetch('http://localhost:8080/api/reviews', {
       method: 'POST',
       mode: 'cors',
@@ -144,7 +151,10 @@ class Profile extends Component {
           {localStorage.getItem('loggedInUsersId') ? (
             <Form className="review-form" onSubmit={this.handleSubmit}>
               <Form.Group>
-                <Form.Label>Add a Review:</Form.Label>
+                <Form.Label>Rate and Review:</Form.Label>
+                <div className="add-rating">
+                  <StarRatingComponent name="add-rating" onStarClick={this.onStarClick} value={this.state.newRating}/>
+                </div>
                 <Form.Control as="textarea" placeholder="Write new review here..."/>
               </Form.Group>
               <Button variant="info" type="submit" >Submit</Button>
