@@ -20,6 +20,10 @@
   padding-right: 0.2em;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
 @media (min-width: 990px) {
   .nav-components a {
     padding-left: 0.8em;
