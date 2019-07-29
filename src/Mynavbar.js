@@ -9,7 +9,7 @@ class Mynavbar extends Component{
 
   render () {
     return(
-      <Navbar className="nav-color" expand="lg">
+      <Navbar className="nav-color navbar-dark" expand="lg">
         <Link to="/">
           <img
           src={logo}
