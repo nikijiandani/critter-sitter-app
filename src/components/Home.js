@@ -4,6 +4,7 @@ import BackgroundSlider from 'react-background-slider';
 import './styles/home.css';
 import bird from './images/bird.jpg';
 import cat from './images/cat.jpg';
+import cat1 from './images/cat1.jpg';
 import dog from './images/dog.jpg';
 import hedgehog from './images/hedgehog.jpg';
 import rabbit from './images/rabbit.jpg';
@@ -15,7 +16,7 @@ class Home extends Component {
     return (
       <div>
         <div className="background-images">
-          <BackgroundSlider images={[ bird, cat, hedgehog2, dog, rabbit, hedgehog, dograbbit ]}
+          <BackgroundSlider images={[ bird, dograbbit, cat, hedgehog2, dog, rabbit, cat1, hedgehog ]}
                             duration={5}
                             transition={0} />
         </div>
