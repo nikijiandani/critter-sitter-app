@@ -123,12 +123,16 @@ class Profile extends Component {
 
               </div>
             
-            
+              { localStorage.getItem('loggedInUsersEmail') ? (
               <Link 
                 to={`/profile/${this.state.lookup_id}/contact/${this.state.profiles.first_name}`} 
                 className="btn btn-info">Contact {this.state.profiles.first_name}
               </Link>
-
+              ) : (
+              <Link to="/login"
+                className="btn btn-info">Contact {this.state.profiles.first_name}
+              </Link>
+              ) }
 
               <div className="profile-bio">
                 <strong>{this.state.profiles.first_name} says:</strong> <i>{this.state.profiles.bio}</i>
