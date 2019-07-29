@@ -199,18 +199,18 @@
     height: 50vh;
   }
   .profile-left {
-    width: 60%;
+    width: 65%;
     padding-top: 0;
   }
   .profile-right {
-    width: 40%;
+    width: 35%;
   }
   .profile-images {
     display: unset;
   }
   .profile-images img {
     width: 100%;
-    height: 42vh;
+    height: 47vh;
   }
 }
 @media (min-width: 1440px){
