@@ -3,8 +3,31 @@
   flex-direction: column;
   padding-bottom: 3em;
 }
-.profile-container form {
+.profile-container .review-form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-container .form-group {
+  margin-bottom: 0;
+  width: 100%;
+}
+.profile-container .form-group .form-label {
+  background-color: black;
+  color: white;
+  padding: 0.5em 0.6em;
+  font-size: 1.2em;
+  margin-bottom: 0;
+  width: 100%;
+  align-self: stretch;
+}
+.profile-container button {
+  width: 100%;
+}
+.profile-container .form-group textarea {
+  height: 4em;
+  padding: 0.5em;
 }
 .profile-left {
   display: flex;
@@ -21,7 +44,7 @@
   align-items: center;
   text-align: center;
 }
-.red-indicator {
+.sitter-badge {
   background-color: red;
   color: white;
   border-radius: 12px;
@@ -109,6 +132,19 @@
   background-color: #4ABFBF;
   border-color: #4ABFBF;
 }
+@media (min-width: 425px) {
+  .profile-container .form-group textarea {
+    align-self: flex-start;
+    margin: 0.2em 0.5em;
+    width: 97%;
+  }
+  .profile-container button {
+    width: 40%;
+    align-self: flex-start;
+    margin-left: 0.5em;
+    margin-bottom: 0.2em;
+  }
+}
 @media (min-width: 768px) {
   .profile-avatar img {
     width: 14em;
@@ -124,6 +160,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .profile-container button {
+    width: 30%;
   }
 }
 @media (min-width: 992px) {
