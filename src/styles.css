@@ -20,6 +20,23 @@
   padding-right: 0.2em;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  text-align: center;
+}
+
+.footer .footer-logo {
+  background-color: blue;
+}
+
 @media (min-width: 990px) {
   .nav-components a {
     padding-left: 0.8em;

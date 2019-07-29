@@ -14,13 +14,13 @@ import hedgehog2 from './images/hedgehog2.jpg';
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="home-container">
+        <div className="overlay"></div>
         <div className="background-images">
           <BackgroundSlider images={[ bird, dograbbit, cat, hedgehog2, dog, rabbit, cat1, hedgehog ]}
-                            duration={5}
+                            duration={8}
                             transition={0} />
         </div>
-
         <div className="text-section">
           <p>Search thousands of pet sitters near you, read reviews and more!!</p>
         </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './styles.css';
 import Mynavbar from './Mynavbar.js'
+import Footer from './Footer.js'
 import Home from './components/Home.js'
 import Search from './components/Search.js'
 import Profile from './components/Profile.js'
@@ -66,6 +67,7 @@ class App extends Component {
           )} />
           <Route component={Error} />
         </Switch>
+        <Footer />
       </Router>
     );
   }
