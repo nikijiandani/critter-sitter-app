@@ -84,7 +84,7 @@ class Search extends Component {
             { this.props.match.params.role === "sitter" ?
               <h3>Sitters</h3>
               :
-              <h3>Critter Owners</h3>
+              <h3>Owners</h3>
             }
           </div>
         </div>

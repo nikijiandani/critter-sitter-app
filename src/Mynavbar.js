@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.png';
 import {Navbar, Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faSignOutAlt, faSignInAlt, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faSignOutAlt, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 class Mynavbar extends Component{
@@ -28,9 +28,9 @@ class Mynavbar extends Component{
                 <Link to="/" onClick={this.props.handleLogout}>
                   <FontAwesomeIcon icon={faSignOutAlt} />Logout
                 </Link>
-                <Link to="/messages">
+                {/* <Link to="/messages">
                   <FontAwesomeIcon icon={faEnvelope} />Messages
-                </Link>
+                </Link> */}
               </> ) : (
               <>
                 <Link to="/signup">

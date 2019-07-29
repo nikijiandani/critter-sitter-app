@@ -12,10 +12,20 @@
 }
 
 .nav-components a {
-  padding-left: 0.8em;
+  padding-left: 0.2em;
   color: #FFFFFF;
 }
 
 .nav-components a svg {
   padding-right: 0.2em;
+}
+
+@media (min-width: 990px) {
+  .nav-components a {
+    padding-left: 0.8em;
+  }
+
+  .nav-components a svg {
+    padding-right: 0.2em;
+  }  
 }
