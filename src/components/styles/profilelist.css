@@ -16,6 +16,9 @@
   justify-content: space-between;
   padding: 0 1em 0 0.5em;
 }
+.item a {
+  color: black;
+}
 .item .rating-stars {
   font-size: 0.8em;
 }
