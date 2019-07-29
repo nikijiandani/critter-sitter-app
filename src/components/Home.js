@@ -22,7 +22,9 @@ class Home extends Component {
                             transition={0} />
         </div>
         <div className="text-section">
-          <p>Search thousands of pet sitters near you, read reviews and more!!</p>
+          <h1>Critter Sitter</h1>
+          <h3>Search pet sitters near you!</h3>
+          <hr />
         </div>
         <div className="options-section">
           {localStorage.getItem('loggedInUsersId') ?

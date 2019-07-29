@@ -1,10 +1,14 @@
 .text-section {
   padding-top: 20vw;
   margin: 0 0.2em;
-  font-size: 2em;
-  font-weight: 900;
   text-align: center;
   color: white;
+}
+
+.text-section hr {
+  width: 400px;
+	border: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,0.2) 
 }
 
 .overlay {
@@ -16,11 +20,12 @@
   z-index: -99;
 }
 
-.text-section p {
+.text-section h1 {
   z-index: 9999;
   width: 80%;
   margin: 0 auto;
-  font-size: 1.5em;
+  font-size: 4em;
+  font-weight: 700;
 }
 
 .options-section {
