@@ -139,22 +139,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-          <div className="profile-images">
-            <h4>Pictures</h4>
-            <Carousel>
-              {this.state.profiles.images.map((image, index) => {
-                return (
-                  <Carousel.Item key={index}>
-                    <img
-                      className="d-block w-100"
-                      src={image.image}
-                      alt="sliding-images-of-user-or-their-pet"
-                    />
-                  </Carousel.Item>
-                )
-              })}
-            </Carousel>
-          </div>
+
           
           {localStorage.getItem('loggedInUsersId') ? (
             <Form className="review-form" onSubmit={this.handleSubmit}>
@@ -171,10 +156,28 @@ class Profile extends Component {
           {this.state.profiles.reviews ? <Reviews reviews={this.state.profiles.reviews}/> : "No reviews yet. Be the first!"}
 
         </div>
-
-        <div className="profile-map">
-          <h4>{this.state.profiles.first_name}'s Neighbourhood</h4>
-          <Map profiles={[this.state.profiles]} profilePageExists={true} zoom={13}/>
+        
+        <div className="profile-right">
+          <div className="profile-images">
+            <h4>Pictures</h4>
+            <Carousel>
+              {this.state.profiles.images.map((image, index) => {
+                return (
+                  <Carousel.Item key={index}>
+                    <img
+                      className="d-block w-100"
+                      src={image.image}
+                      alt="sliding-images-of-user-or-their-pet"
+                    />
+                  </Carousel.Item>
+                )
+              })}
+            </Carousel>
+          </div>
+          <div className="profile-map">
+            <h4>{this.state.profiles.first_name}'s Neighbourhood</h4>
+            <Map profiles={[this.state.profiles]} profilePageExists={true} zoom={13}/>
+          </div>
         </div>
       </div>
     )
