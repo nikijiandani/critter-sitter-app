@@ -2,6 +2,18 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 3em;
+  overflow: hidden;
+  position: relative;
+}
+.profile-left .profile-skirt {
+  width: 200vw;
+  height: 100vh;
+  background-color: #4ABFBF;
+  border-radius: 50%;
+  position: absolute;
+  top: -460px;
+  z-index: -1;
+  
 }
 .profile-container .review-form {
   width: 100%;
@@ -119,7 +131,7 @@
   width: 100%;
 }
 .profile-review .reviews {
-  height: 100vh;
+  height: 85vh;
   overflow-y: scroll;
 }
 .profile-container h4 {
@@ -183,6 +195,13 @@
   .profile-container button {
     width: 30%;
   }
+  .profile-left .profile-skirt {
+    width: 150vw;
+    height: 100vh;
+    position: absolute;
+    top: -410px;
+    z-index: -1;
+  }
 }
 @media (min-width: 992px) {
   .profile-header {
@@ -232,6 +251,13 @@
   .profile-images img {
     width: 100%;
     height: 35vh;
+  }
+  .profile-left .profile-skirt {
+    display: none;
+  }
+  .profile-review .reviews {
+    height: 50vh;
+    overflow-y: scroll;
   }
 }
 @media (min-width: 1440px){

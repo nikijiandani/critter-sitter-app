@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.png';
 import {Navbar, Nav} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
@@ -11,13 +10,7 @@ class Mynavbar extends Component{
     return(
       <Navbar className="nav-color navbar-dark" expand="lg">
         <Link to="/">
-          <img
-          src={logo}
-          width="130"
-          height="50"
-          className="d-inline-block align-top"
-          alt="logo"
-          />
+          <span className="d-inline-block align-top logo"></span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

@@ -80,8 +80,8 @@ class Profile extends Component {
     return (
       <div className="profile-container">
         <div className="profile-left">
+          <div className="profile-skirt"></div>
           <div className="profile-header">
-
             <div className="profile-avatar">
                 <img src={this.state.profiles.avatar} alt="avatar" />
             </div>
