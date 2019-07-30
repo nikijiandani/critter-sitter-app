@@ -29,13 +29,13 @@ class Home extends Component {
         <div className="options-section">
           {localStorage.getItem('loggedInUsersId') ?
             parseInt(localStorage.getItem('loggedInUsersId')) === 1 ? 
-            <Link to="/search/sitter" className="btn btn-lg btn-info myBtn" >Show me Critter Sitters</Link> 
+            <Link to="/search/sitter" className="btn btn-lg btn-info homeBtn" >Show me Critter Sitters</Link> 
             : 
-            <Link to="/search/customer" className="btn btn-lg btn-info myBtn">Show me Critter Owners</Link>
+            <Link to="/search/customer" className="btn btn-lg btn-info homeBtn">Show me Critter Owners</Link>
            : 
           <>
-            <Link to="/search/sitter" className="btn btn-lg btn-info myBtn" >I need a Critter Sitter</Link>
-            <Link to="/search/customer" className="btn btn-lg btn-info myBtn">I am a Critter Sitter</Link>
+            <Link to="/search/sitter" className="btn btn-lg btn-info homeBtn" >I need a Critter Sitter</Link>
+            <Link to="/search/customer" className="btn btn-lg btn-info homeBtn">I am a Critter Sitter</Link>
           </>
         }
         </div>

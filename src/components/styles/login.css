@@ -7,7 +7,7 @@
     font-size: 3em;
 }
 
-.myBtn {
+.loginBtn {
     color: #FFFFFF;
     background-color: #4ABFBF;
     border-color: #4ABFBF;    
@@ -15,14 +15,20 @@
 
 @media (min-width: 768px){
     .login-form {
-      width: 80%;
-      margin: 0 auto;
+        width: 60%;
+        margin: 0 auto;
+    }
+    .loginBtn {
+        width: 40%;      
     }
 }
   
 @media (min-width: 1024px){
     .login-form {
-      width: 50%;
-      margin: 0 auto;
+        width: 50%;
+        margin: 0 auto;
     }
+    .loginBtn {
+        width: 35%;      
+    }    
 }

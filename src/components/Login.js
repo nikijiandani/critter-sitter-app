@@ -19,7 +19,7 @@ class Login extends Component {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" required />
             </Form.Group>
-            <Button variant="info" type="submit" className="myBtn" block>
+            <Button variant="info" type="submit" className="loginBtn" block>
               Login
             </Button>
           </Form>

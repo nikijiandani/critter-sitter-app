@@ -9,12 +9,8 @@ class Signup extends Component {
     return (     
       <div>
         <div className="returning-user">
-          <div className="return-label">        
-            <h4>Returning User</h4>
-          </div>
-          <div className="login-link">
-            <Link to="/login">Login</Link>
-          </div>
+          <p className="return-label">Returning User?</p>
+          <Link to="/login" className="login-link">Login</Link>
         </div>        
 
         <Form className="signup-form">
@@ -38,7 +34,7 @@ class Signup extends Component {
             </Form.Group>         
           </Form.Row>
           
-          <Form.Row>
+          <Form.Row className="password-signup">
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
@@ -77,7 +73,7 @@ class Signup extends Component {
             </Form.Group>
           </Form.Row>        
 
-          <Button variant="info" type="submit" className="myBtn" block>
+          <Button variant="info" type="submit" className="signupBtn" block>
             Submit
           </Button>
         </Form>   
