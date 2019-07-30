@@ -7,7 +7,7 @@ function ProfileList(props) {
     <ul className="profilelist">
       {props.profiles.map((user, index) => {
           return (
-            <ProfileListProfile user={user} index={index}/>
+            <ProfileListProfile user={user} index={index} key={index}/>
           )
         // }
       })}
