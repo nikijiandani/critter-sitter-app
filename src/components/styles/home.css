@@ -6,7 +6,7 @@
 }
 
 .text-section hr {
-  width: 400px;
+  width: 90%;
 	border: 1px solid #f8f8f8;
 	border-bottom: 1px solid rgba(0,0,0,0.2) 
 }
@@ -52,5 +52,13 @@
   .homeBtn {
     width: 20%;
     margin-left: 0.5em; 
+  }
+  .text-section hr {
+    width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .text-section hr {
+    width: 35%;
   }
 }

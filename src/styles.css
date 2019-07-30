@@ -6,6 +6,13 @@
   background-color: #4ABFBF;
 }
 
+.logo {
+  background-image: url('./logo_sm.png');
+  background-repeat: no-repeat;
+  width: 6em;
+  height: 2.5em;
+}
+
 .nav-components {
   font-size: 1.3em;
   color: #FFFFFF;
@@ -32,4 +39,11 @@
   .nav-components a svg {
     padding-right: 0.2em;
   }  
+
+  .logo {
+    background-image: url('./logo_lg.png');
+    background-repeat: no-repeat;
+    width: 9.5em;
+    height: 3.8em;
+  }
 }
