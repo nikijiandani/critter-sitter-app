@@ -34,7 +34,7 @@
   flex-wrap: wrap;
 }
 
-.myBtn {
+.homeBtn {
   width: 100%;
   margin-top: 0.2em;
   color: #FFFFFF;
@@ -43,13 +43,13 @@
 }
 
 @media (min-width: 576px) {
-  .myBtn {
+  .homeBtn {
     width: 60%;
   }
 }
 
 @media (min-width: 768px) {
-  .myBtn {
+  .homeBtn {
     width: 20%;
     margin-left: 0.5em; 
   }

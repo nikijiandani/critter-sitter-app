@@ -2,7 +2,7 @@
     padding: 0.2em;
 }
 
-.myBtn {
+.signupBtn {
   color: #FFFFFF;
   background-color: #4ABFBF;
   border-color: #4ABFBF;    
@@ -14,25 +14,39 @@
 }
 
 .returning-user {
-    padding: 0.5em 0.2em;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 0.5em 0.2em 0 0.2em;
+}
+.return-label {
+    display: inline;
 }
 
 .login-link {
-    margin-left: 1em;
-    font-size: 1.5em;
+    margin-left: 0.5em;
+    font-size: 1em;
+}
+
+.signup-form .password-signup {
+    flex-direction: column;
 }
 
 .return-label {
     padding-top: 0.3em;
 }
 
+@media (min-width: 425px) {
+    .signup-form .password-signup {
+        flex-direction: initial;
+    }
+}
+
 @media (min-width: 768px){
     .signup-form, .returning-user {
-      width: 80%;
+      width: 60%;
       margin: 0 auto;
     }
+    .signupBtn {
+        width: 40%;      
+    }    
 }
   
 @media (min-width: 1024px){
@@ -40,4 +54,7 @@
       width: 50%;
       margin: 0 auto;
     }
+    .signupBtn {
+        width: 35%;      
+    }    
 }
