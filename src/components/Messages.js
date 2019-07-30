@@ -15,7 +15,7 @@ class Messages extends Component {
             <p>{msg.content}</p>
             <p className="date-text">{new Date(msg.created_at).toLocaleString(
               'en-US', 
-              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
             )}</p>
           </li>)
         }
@@ -25,8 +25,8 @@ class Messages extends Component {
             <p>{msg.content}</p>
             <p className="date-text">{new Date(msg.created_at).toLocaleString(
               'en-US', 
-              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-            )}</p>
+              { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
+            )}</p> 
           </li>
         )
       }
