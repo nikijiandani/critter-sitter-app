@@ -1,3 +1,11 @@
+Critter Sitter
+=====================
+
+Critter Sitter is a full stack application built with React on the front-end talking to an ExpressJS back-end([critter-sitter-server](https://github.com/nikijiandani/critter-sitter-server)) with a REST interface in between.
+
+### Final Product
+!["landing_page"](/public/screenshots/landing_page_screenshot.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
