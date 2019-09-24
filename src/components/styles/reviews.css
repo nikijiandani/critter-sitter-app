@@ -4,7 +4,7 @@
 }
 .review {
   padding: 0.2em 0.5em;
-  border-bottom: 1px solid #9B9B9B;
+  border-bottom: 1px solid #9b9b9b;
 }
 .review-info {
   display: flex;
@@ -27,4 +27,8 @@
 }
 .review-author {
   padding-bottom: 0.6em;
+}
+.review-author a {
+  padding: 0;
+  color: black;
 }
