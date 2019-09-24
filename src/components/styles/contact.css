@@ -1,3 +1,6 @@
+.msg-block {
+  width: 100%;
+}
 .msg-block .contact {
   padding: 0.2em;
   width: 100%;
@@ -45,14 +48,14 @@ textarea.form-control {
 .msg-title {
   padding: 0.2em 0.2em;
   background-color: black;
-  color: #FFFFFF;  
+  color: #ffffff;
 }
 .msg-title h4 {
   margin-bottom: 0;
-  padding-left: 0.5em;  
+  padding-left: 0.5em;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .msg-container {
     display: flex;
     flex-direction: row;
@@ -60,7 +63,7 @@ textarea.form-control {
   .msg-block {
     border-left: 2px solid black;
   }
-  .chat-header .title{
+  .chat-header .title {
     margin-bottom: 0;
     font-size: 1em;
   }
@@ -86,10 +89,7 @@ textarea.form-control {
   }
 }
 
-@media (min-width: 1024px){
-  .msg-block {
-    width: 100%;
-  }
+@media (min-width: 1024px) {
   .contact button {
     width: 20%;
   }
