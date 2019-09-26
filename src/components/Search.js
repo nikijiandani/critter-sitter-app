@@ -16,7 +16,6 @@ class Search extends Component {
 
   handleChange = event => {
     event.preventDefault();
-    console.log(event.target.value);
     let distance;
     if (event.target.value !== 0) {
       distance = event.target.value * 1000;
@@ -31,9 +30,9 @@ class Search extends Component {
       `http://localhost:8080/api/users?role=${this.state.role}${query}`
     ).then(results => {
       results.json().then(res => {
-        console.log(res);
         this.setState({
-          profiles: res
+          profiles: res,
+          distance: distance
         });
       });
     });
@@ -95,7 +94,10 @@ class Search extends Component {
             className="map-component"
             zoom={11}
           />
-          <ProfileList profiles={this.state.profiles} />
+          <ProfileList
+            profiles={this.state.profiles}
+            distanceQuery={this.state.distance}
+          />
         </div>
       </div>
     );
