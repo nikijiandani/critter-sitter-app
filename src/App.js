@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <Router>
-      <Mynavbar handleLogout={handleLogout} currentUser={currentLoggedInUser} />
+      <Mynavbar handleLogout={handleLogout} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/search/:role" component={Search} />
