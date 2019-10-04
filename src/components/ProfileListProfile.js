@@ -2,7 +2,7 @@ import React from "react";
 import StarRatingComponent from "react-star-rating-component";
 import { Link } from "react-router-dom";
 
-function ProfileListProfile({ index, user }) {
+export default function ProfileListProfile({ index, user }) {
   let myIndex = index + 1;
   return (
     <li className="item" key={index}>
@@ -51,5 +51,3 @@ function ProfileListProfile({ index, user }) {
     </li>
   );
 }
-
-export default ProfileListProfile;

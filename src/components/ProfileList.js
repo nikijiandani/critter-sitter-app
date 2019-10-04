@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/profilelist.css";
 import ProfileListProfile from "./ProfileListProfile";
 
-function ProfileList({ profiles, distanceQuery }) {
+export default function ProfileList({ profiles, distanceQuery }) {
   return (
     <ul className="profilelist">
       {profiles.length === 0 ? (
@@ -19,5 +19,3 @@ function ProfileList({ profiles, distanceQuery }) {
     </ul>
   );
 }
-
-export default ProfileList;
