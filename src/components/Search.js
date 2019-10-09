@@ -8,6 +8,7 @@ export default function Search(props) {
   // const city = "Toronto";
   const [profiles, setProfiles] = useState([]);
   const [role, setRole] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChange = event => {
     event.preventDefault();
@@ -47,6 +48,7 @@ export default function Search(props) {
           if (isSubscribed) {
             setProfiles(res);
             setRole(role);
+            setIsLoading(false);
           }
         });
       });
@@ -91,8 +93,29 @@ export default function Search(props) {
         </div>
       </div>
       <div className="search-container">
-        <Map profiles={profiles} className="map-component" zoom={11} />
-        <ProfileList profiles={profiles} distanceQuery={distance} />
+        {isLoading ? (
+          <section className="loading-container">
+            <div className="lds-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </section>
+        ) : (
+          <>
+            <Map profiles={profiles} className="map-component" zoom={11} />
+            <ProfileList profiles={profiles} distanceQuery={distance} />
+          </>
+        )}
       </div>
     </div>
   );
