@@ -18,7 +18,9 @@ class Contact extends Component {
   }
 
   getProfiles = pid => {
-    fetch("http://localhost:8080/api/users?id=" + pid).then(results => {
+    fetch(
+      "https://critter-sitter-server.herokuapp.com/api/users?id=" + pid
+    ).then(results => {
       results.json().then(res => {
         this.setState({
           profiles: res[0], // individual profile is first result
@@ -30,15 +32,15 @@ class Contact extends Component {
 
   getMessages = () => {
     const currentUserId = localStorage.getItem("loggedInUsersId");
-    fetch(`http://localhost:8080/api/messages?user_id=${currentUserId}`).then(
-      results => {
-        results.json().then(res => {
-          this.setState({
-            messages: res
-          });
+    fetch(
+      `https://critter-sitter-server.herokuapp.com/api/messages?user_id=${currentUserId}`
+    ).then(results => {
+      results.json().then(res => {
+        this.setState({
+          messages: res
         });
-      }
-    );
+      });
+    });
   };
 
   handleSubmit = e => {
@@ -51,7 +53,7 @@ class Contact extends Component {
     };
     console.log(e.target.elements[0].value);
     e.target.elements[0].value = "";
-    fetch("http://localhost:8080/api/messages", {
+    fetch("https://critter-sitter-server.herokuapp.com/api/messages", {
       method: "POST",
       mode: "cors",
       credentials: "omit",

@@ -21,14 +21,14 @@ export default function Search(props) {
         "loggedInUsersId"
       )}&dist_metres=${distance}`;
     }
-    fetch(`http://localhost:8080/api/users?role=${role}${query}`).then(
-      results => {
-        results.json().then(res => {
-          setProfiles(res);
-          setDistance(distance);
-        });
-      }
-    );
+    fetch(
+      `https://critter-sitter-server.herokuapp.com/api/users?role=${role}${query}`
+    ).then(results => {
+      results.json().then(res => {
+        setProfiles(res);
+        setDistance(distance);
+      });
+    });
   };
 
   useEffect(() => {
@@ -39,7 +39,9 @@ export default function Search(props) {
 
     let isSubscribed = true;
 
-    fetch("http://localhost:8080/api/users?role=" + role).then(results => {
+    fetch(
+      "https://critter-sitter-server.herokuapp.com/api/users?role=" + role
+    ).then(results => {
       results.json().then(res => {
         if (isSubscribed) {
           setProfiles(res);
