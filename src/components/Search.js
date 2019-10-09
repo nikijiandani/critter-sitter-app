@@ -39,18 +39,23 @@ export default function Search(props) {
 
     let isSubscribed = true;
 
-    fetch(
-      "https://critter-sitter-server.herokuapp.com/api/users?role=" + role
-    ).then(results => {
-      results.json().then(res => {
-        if (isSubscribed) {
-          setProfiles(res);
-          setRole(role);
-        }
+    const fetchData = async () => {
+      await fetch(
+        "https://critter-sitter-server.herokuapp.com/api/users?role=" + role
+      ).then(results => {
+        results.json().then(res => {
+          if (isSubscribed) {
+            setProfiles(res);
+            setRole(role);
+          }
+        });
       });
-    });
+    };
+
+    fetchData();
+
     return () => (isSubscribed = false);
-  });
+  }, [props.match.params.role]);
 
   return (
     <div className="search">
