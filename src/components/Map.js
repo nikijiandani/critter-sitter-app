@@ -1,13 +1,13 @@
-import React from "react";
-import "./styles/map.css";
-import GoogleMapReact from "google-map-react";
+import React from 'react';
+import './styles/map.css';
+import GoogleMapReact from 'google-map-react';
 
 const GM_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 // text displays inside profile pin
-const ProfilePins = ({ text }) => <div className="map-pins">{text}</div>;
+const ProfilePins = ({ text }) => <div className='map-pins'>{text}</div>;
 
-const Circle = ({ text }) => <div className="map-circle">{text}</div>;
+const Circle = ({ text }) => <div className='map-circle'>{text}</div>;
 
 export default function SearchMap({
   profilePageExists,
@@ -24,7 +24,7 @@ export default function SearchMap({
           lng: profiles[0].home_long
         }}
         radius={100}
-        text=""
+        text=''
       />
     );
   }
@@ -32,11 +32,11 @@ export default function SearchMap({
   return (
     // create map and add a pin for each profile
     // GoogleMap passes $hover props to hovered components
-    <div className="map">
+    <div className='map'>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: GM_API_KEY,
-          v: "3.31"
+          v: '3.31'
         }}
         center={
           profiles[0]
@@ -52,7 +52,7 @@ export default function SearchMap({
           if (
             !profilePageExists &&
             mapProfile.user_id.toString() !==
-              localStorage.getItem("loggedInUsersId")
+              localStorage.getItem('loggedInUsersId')
           ) {
             return (
               <ProfilePins
@@ -62,6 +62,8 @@ export default function SearchMap({
                 text={index + 1}
               />
             );
+          } else {
+            return '';
           }
         })}
         {circleValue}
