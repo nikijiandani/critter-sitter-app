@@ -1,13 +1,13 @@
 .profilelist {
   padding: 0;
-  height: 85vh;
+  height: 80vh;
   overflow-y: scroll;
   box-shadow: 1px 3px #e6e6e6;
   width: 100%;
 }
 .item {
   list-style-type: none;
-  border-bottom: 1px solid #9B9B9B;
+  border-bottom: 1px solid #9b9b9b;
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-radius: 5px;
@@ -51,7 +51,7 @@
   font-style: italic;
   padding-right: 0.3em;
   align-content: center;
-} 
+}
 .pet-icon {
   display: flex;
   flex-direction: row;
@@ -87,7 +87,7 @@
     height: 5em;
   }
 }
-@media (min-width:768px){
+@media (min-width: 768px) {
   .item-info {
     flex-direction: row;
     align-items: center;
@@ -126,5 +126,5 @@
   }
   .pet {
     width: 45%;
-  } 
+  }
 }
